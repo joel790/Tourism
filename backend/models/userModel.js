@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-userSchema=mongoose.Schcema({
+userSchema=mongoose.Schema({
 
     name:{
         type:String,
@@ -21,7 +21,7 @@ userSchema=mongoose.Schcema({
         type:String,
         required:[true,"please enter the password"],
         minLength:[8,"please add at least 8 characters!"],
-        maxLength:[23, "password is not more than 23 characters"],
+        // maxLength:[23, "password is not more than 23 characters"],
 
     },
     photo:{
