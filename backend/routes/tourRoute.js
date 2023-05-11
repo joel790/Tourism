@@ -4,7 +4,7 @@ const { createTour, updateTourById, getAllTours, getTour, deleteTour } = require
 
 const router=express.Router();
 router.get("/",getAllTours);
-router.post("/create",createTour);
+router.post("/",createTour);
 router.patch("/:id",updateTourById);
 router.get("/:id",getTour);
 router.delete("/:id",deleteTour);

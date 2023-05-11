@@ -4,6 +4,8 @@ const bodyParser=require("body-parser");
 const dotenv=require("dotenv").config();
 const cors=require("cors");
 const userRoute=require("./routes/userRoute");
+const tourGuideRoute=require("./routes/tourGuideRoute");
+const tourRoute=require("./routes/tourRoute");
 const errorHandler = require("./moddleWare/errorMiddleware");
 // const session= require("express-session");
 const app=express();
@@ -19,6 +21,12 @@ app.use(bodyParser.json())
 
 //route middleware
 app.use("/api/users",userRoute);
+app.use("/api/tourguides",tourGuideRoute);
+app.use("/api/tours",tourRoute);
+
+
+
+
 
 
 //routs

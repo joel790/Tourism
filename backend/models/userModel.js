@@ -1,4 +1,7 @@
-const mongoose=require("mongoose")
+
+const bcrypt=require("bcryptjs");
+
+const mongoose=require("mongoose");
 userSchema=mongoose.Schema({
 
     name:{
@@ -42,6 +45,10 @@ userSchema=mongoose.Schema({
     timestamp:true,
 }
 )
+userSchema.methods.matchPassword = async function (password) {
+    const isMatch = await bcrypt.compare(password, this.password);
+    return isMatch;
+  };
 
 const User=mongoose.model("User",userSchema)
 
