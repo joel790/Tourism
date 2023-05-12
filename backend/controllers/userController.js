@@ -9,8 +9,8 @@ const generateToken = (id,isAdmin) => {
 };
 
 // register users
-const registerUser = asyncHandler(async (req, res) => {
-  const { name, password, email } = req.body;
+exports.registerUser = asyncHandler(async (req, res) => {
+  const { name, password, email,isAdmin } = req.body;
 
   //check if email already exist
   const userExist = await User.findOne({ email });
@@ -36,6 +36,8 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     password,
     email,
+    isAdmin
+    
   });
   //generate token
   const token = generateToken(user._id);
@@ -54,12 +56,13 @@ const registerUser = asyncHandler(async (req, res) => {
     _id: user._id,
     name: user.name,
     email: user.email,
+    isAdmin: user.isAdmin,
     token,
   });
 });
 
 //login user
-const loginUser = asyncHandler(async (req, res) => {
+exports.loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   //check user existence
   const user = await User.findOne({ email });
@@ -80,7 +83,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-const logoutUser=asyncHandler(async(req, res,)=>{
+exports.logoutUser=asyncHandler(async(req, res,)=>{
   res.send("successfully logedout");
 });
 
@@ -88,7 +91,7 @@ const logoutUser=asyncHandler(async(req, res,)=>{
 
 
 //assign the user to be admin
-const updateUser = asyncHandler(async (req, res) => {
+exports.updateUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
 
   if (!user) {
@@ -117,10 +120,3 @@ const updateUser = asyncHandler(async (req, res) => {
   });
 });
 
-module.exports = {
-  registerUser,
-  loginUser,
-  logoutUser,
-  updateUser,
-  
-};

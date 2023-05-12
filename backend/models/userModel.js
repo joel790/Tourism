@@ -9,6 +9,11 @@ userSchema=mongoose.Schema({
         required:[true,"please add the name"],
 
     },
+    isAdmin:{
+        type:Boolean,
+        default:false,
+
+    },
     email:{
         type:String,
         required:[true,"please add the email"],

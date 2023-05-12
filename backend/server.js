@@ -24,27 +24,20 @@ app.use("/api/users",userRoute);
 app.use("/api/tourguides",tourGuideRoute);
 app.use("/api/tours",tourRoute);
 
-
-
-
-
-
 //routs
 app.get('/',(req,res)=>{
     res.send("home page");
 });
 
-
 //error middleware
 app.use(errorHandler);
-
 
 // connect to mongodb
 
 mongoose
     .connect(process.env.MONGO_URI)
     .then(()=>{
-        console.log(`mongodb connected`);
+        console.log('mongodb connected');
         app.listen(PORT,()=>{
             console.log(`server started on port ${PORT}`);
         })
