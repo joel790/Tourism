@@ -50,6 +50,20 @@ userSchema=mongoose.Schema({
     timestamp:true,
 }
 )
+
+userSchema.pre("save", async function (next) {
+  try {
+    if (!this.isModified("password")) {
+      return next();
+    }
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(this.password, salt);
+    this.password = hashedPassword;
+    return next();
+  } catch (error) {
+    return next(error);
+  }
+});
 userSchema.methods.matchPassword = async function (password) {
     const isMatch = await bcrypt.compare(password, this.password);
     return isMatch;

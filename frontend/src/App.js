@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter,  Routes, Route,   } from 'react-router-dom';
+import Home from './pages/home/Home';
+import Register from './pages/auth/Register';
+import Login from './pages/auth/Login';
+import Reset from './pages/auth/Reset';
+import Forgot from './pages/auth/Forgot';
+import axios from 'axios';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+axios.defaults.withCredentials=true
+const App = () => {
+  return (    
+    <BrowserRouter>
+    <ToastContainer/>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/register' element={<Register/>}/>
+      <Route path='/forgot' element={<Forgot/>}/>
+      <Route path='/resetPassword/:resetToken' element={<Reset/>}/>
+    </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

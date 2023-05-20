@@ -1,95 +1,155 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
-const zxcvbn = require("zxcvbn");
 const jwt = require("jsonwebtoken");
-const MIN_PASSWORD_SCORE = 3;
+const bcrypt= require("bcryptjs");
 
-const generateToken = (id,isAdmin) => {
-  return jwt.sign({ id,isAdmin}, process.env.JWT_SECRET, { expiresIn: "1d" });
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
 
 // register users
+// Register User
 exports.registerUser = asyncHandler(async (req, res) => {
-  const { name, password, email,isAdmin } = req.body;
+  const { name, email, password } = req.body;
 
-  //check if email already exist
-  const userExist = await User.findOne({ email });
-  if (userExist) {
+  // Validation
+  if (!name || !email || !password) {
     res.status(400);
-    throw new Error("Email already been registered.");
+    throw new Error("Please fill in all required fields");
   }
-  // check password strength
-  const passwordLength = password.length;
-  const passwordScore = zxcvbn(password).score;
-  if (passwordScore < MIN_PASSWORD_SCORE) {
+  if (password.length < 6) {
     res.status(400);
-    throw new Error(
-      `Password is too weak.
-         1, Please use a password with at least ${passwordLength} characters,
-         2, at least 1 upercase letter
-         , 1 spcial character and numbers`
-    );
+    throw new Error("Password must be up to 6 characters");
   }
 
-  //create/register new user and put to the database
+  // Check if user email already exists
+  const userExists = await User.findOne({ email });
+
+  if (userExists) {
+    res.status(400);
+    throw new Error("Email has already been registered");
+  }
+
+  // Create new user
   const user = await User.create({
     name,
-    password,
     email,
-    isAdmin
-    
+    password,
   });
-  //generate token
+
+  //   Generate Token
   const token = generateToken(user._id);
 
-  //send httponly cookie to user
+  // Send HTTP-only cookie
   res.cookie("token", token, {
     path: "/",
-    expires: new Date(Date.now() + 86400000),
     httpOnly: true,
+    expires: new Date(Date.now() + 1000 * 86400), // 1 day
     sameSite: "none",
     secure: true,
   });
 
-  //response to created user data
-  res.status(201).json({
-    _id: user._id,
-    name: user.name,
-    email: user.email,
-    isAdmin: user.isAdmin,
-    token,
-  });
-});
-
-//login user
-exports.loginUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-  //check user existence
-  const user = await User.findOne({ email });
-  //if user exist and password matches
-  //genetate tocken and send it to the client
-  if (user && (await user.matchPassword(password))) {
-    const token = generateToken(user._id,user.isAdmin);
-    res.status(200).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin, // Add isAdmin property to response
+  if (user) {
+    const { _id, name, email, photo, phone,password} = user;
+    res.status(201).json({
+      _id,
+      name,
+      email,
+      photo,
+      phone,
+      password,
       token,
     });
   } else {
-    res.status(401);
-    throw new Error("user doesn't exist or Invalid email or password");
+    res.status(400);
+    throw new Error("Invalid user data");
   }
 });
+// Login User
+exports.loginUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
 
-exports.logoutUser=asyncHandler(async(req, res,)=>{
+  // Validate user input
+  if (!email || !password) {
+    res.status(400);
+    throw new Error("Please provide an email and a password");
+  }
+
+  // Check if user exists
+  const user = await User.findOne({ email });
+  if (!user) {
+    res.status(401);
+    throw new Error("Invalid credentials");
+  }
+
+  // Check if password is correct
+  const isPasswordMatched = await user.matchPassword(password);
+  if (!isPasswordMatched) {
+    res.status(401);
+    throw new Error("Invalid credentials");
+  }
+
+  // Generate token
+  const token = generateToken(user._id);
+
+  // Send HTTP-only cookie
+  res.cookie("token", token, {
+    path: "/",
+    httpOnly: true,
+    expires: new Date(Date.now() + 1000 * 86400), // 1 day
+    sameSite: "none",
+    secure: true,
+  });
+
+  if (user) {
+    const { _id, name, email, photo, phone } = user;
+    res.status(201).json({
+      _id,
+      name,
+      email,
+      photo,
+      phone,
+      token,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid user data");
+  }
+  });
+
+
+exports.logoutUser = asyncHandler(async (req, res) => {
   res.send("successfully logedout");
 });
 
+exports.getUsers=asyncHandler(async (req, res) => {
+   const user=await User.find();
+   if(user){
+    res.status(200).json({
+      data:{
+        user,
+      }
+    })
+   }else{
+    throw new Error("user not found");
+   }
 
+});
 
+//get single user
+exports.getUser=asyncHandler(async (req, res) => {
+  const user=await User.findById(req.params.id);
+  if(user){
+   res.status(200).json({
+     data:{
+       user,
+     }
+   })
+  }else{
+   throw new Error("user not found");
+  }
 
+});
 //assign the user to be admin
 exports.updateUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
@@ -119,4 +179,3 @@ exports.updateUser = asyncHandler(async (req, res) => {
     isAdmin: updatedUser.isAdmin,
   });
 });
-

@@ -7,9 +7,8 @@ const tourSchema = new mongoose.Schema(
       required: true,
       unique: true,
       trim: true,
-      index:true
+      index: true,
     },
-
 
     category: {
       type: String,
@@ -56,16 +55,20 @@ const tourSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    location: {
+      type: String,
+      required: true,
+    },
 
     images: {
       type: Object,
       required: true,
       default: {},
     },
-
   },
   {
-    timestamps:true,
-  });
+    timestamps: true,
+  }
+);
 
 module.exports = mongoose.model("Tour", tourSchema);

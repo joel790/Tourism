@@ -3,10 +3,12 @@ const mongoose=require("mongoose");
 const bodyParser=require("body-parser");
 const dotenv=require("dotenv").config();
 const cors=require("cors");
+const errorHandler = require("./moddleWare/errorMiddleware");
+const cookieParser=require("cookie-parser");
 const userRoute=require("./routes/userRoute");
 const tourGuideRoute=require("./routes/tourGuideRoute");
 const tourRoute=require("./routes/tourRoute");
-const errorHandler = require("./moddleWare/errorMiddleware");
+const bookingRoute=require("./routes/bookingRoute");
 // const session= require("express-session");
 const app=express();
 
@@ -15,16 +17,23 @@ const PORT=process.env.PORT ||5000
 
 //middlewares
 app.use(express.json())
+app.use(cookieParser())
 app.use(express.urlencoded({extended:false}))
 app.use(bodyParser.json())
-
+app.use(
+    cors({
+      origin: ["http://localhost:3000", "https://tourism-app.vercel.app"],
+      credentials: true,
+    })
+  );
 
 //route middleware
 app.use("/api/users",userRoute);
 app.use("/api/tourguides",tourGuideRoute);
 app.use("/api/tours",tourRoute);
+app.use("/api/bookings",bookingRoute);
 
-//routs
+//routes
 app.get('/',(req,res)=>{
     res.send("home page");
 });
