@@ -9,9 +9,10 @@ userSchema=mongoose.Schema({
         required:[true,"please add the name"],
 
     },
-    isAdmin:{
-        type:Boolean,
-        default:false,
+    role:{
+        type:String,
+        enum:["admin","tourGuide","user"],
+        default:"user",
 
     },
     email:{

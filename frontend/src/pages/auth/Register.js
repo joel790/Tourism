@@ -8,20 +8,18 @@ import { registerUser, validateEmail } from "../../services/authService";
 import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
 import Loader from "../../components/loader/Loader";
 
-
 const initialState = {
   name: "",
   email: "",
   password: "",
-  
 };
 const Register = () => {
-  const dispatch= useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [isLoading, setIsLoading]=useState(false)
-  const [formData,setformData]=useState(initialState)
-  const {name,email,password}=formData
-  
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setformData] = useState(initialState);
+  const { name, email, password } = formData;
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setformData({ ...formData, [name]: value });
@@ -29,14 +27,13 @@ const Register = () => {
 
   const register = async (e) => {
     e.preventDefault();
-     if (!name || !email || !password) {
-      return toast.error("please fill all fields!")
-     }
-     if (password.length<8) {
-      return toast.error("password must at least be 8 characters")
-      
-     }
-     if (!validateEmail(email)) {
+    if (!name || !email || !password) {
+      return toast.error("please fill all fields!");
+    }
+    if (password.length < 8) {
+      return toast.error("password must at least be 8 characters");
+    }
+    if (!validateEmail(email)) {
       return toast.error("Please enter a valid email");
     }
     const userData = {
@@ -54,16 +51,16 @@ const Register = () => {
     } catch (error) {
       setIsLoading(false);
     }
-  }
+  };
   return (
     <div className="auth">
-      {isLoading && <Loader/>}
+      {isLoading && <Loader />}
       <Card>
         <div className="form">
           <h3>Create Your account</h3>
-
+            <h4>please fill the following</h4>
           <form onSubmit={register}>
-          <div className="input-wrapper">
+            <div className="input-wrapper">
               <span className="icon-prefix">&#x1F4E7;</span>
               <input
                 type="text"
@@ -85,7 +82,7 @@ const Register = () => {
                 onChange={handleInputChange}
               />
             </div>
-            
+
             <div className="input-wrapper">
               <span className="icon-prefix">&#x1F512;</span>
               <input
@@ -97,12 +94,15 @@ const Register = () => {
                 onChange={handleInputChange}
               />
             </div>
-
-
             <button className="--btn --btn-primary">Register</button>
+            <br />
             <span>
-              <p>Already Have an account &nbsp;<Link to="/login">SignIn</Link></p>
-              
+              <p>
+                Already Have an account! &nbsp;
+                <Link to="/login" className="link-yellow">
+                  SignIn
+                </Link>
+              </p>
             </span>
           </form>
         </div>

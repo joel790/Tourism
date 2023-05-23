@@ -9,7 +9,6 @@ if (nameFromLocalStorage) {
     console.warn("Couldn't parse name from local storage: ", e.message);
   }
 }
-
 const initialState = {
   isLoggedIn: false,
   name,

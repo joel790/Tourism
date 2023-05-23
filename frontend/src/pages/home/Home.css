@@ -24,9 +24,10 @@
       color: #fff;
     }
   }
+
   
   .hero {
-    /* background-color: #8f84eb; */
+    /* background-color: aqua; */
     display: flex;
     justify-content: center;
     align-items: center;

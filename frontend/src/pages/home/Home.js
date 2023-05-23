@@ -60,5 +60,4 @@ const NumberText = ({ num, text }) => {
     </div>
   );
 };
-
 export default Home;
