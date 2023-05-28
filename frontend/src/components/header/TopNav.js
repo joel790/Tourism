@@ -1,16 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import "./TopNav.css"
+import {AiOutlineMail} from "react-icons/ai"
+import {IoMdNotificationsOutline} from "react-icons/io"
 const TopNav = () => {
   return (
-    <nav>
-      <ul>
-        <li><Link to="/tourguide">Tour Guide</Link></li>
-        <li><Link to="/user">User</Link></li>
-        <li><Link to="/admin">Admin</Link></li>
-        
-      </ul>
-    </nav>
+    <div className='TopNav'>
+     <div className='icons'>
+      <AiOutlineMail/>
+      <IoMdNotificationsOutline/>
+     </div>
+    </div>
   )
 }
 

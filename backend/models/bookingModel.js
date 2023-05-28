@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
-
-// const User = require('../models/userModel'); 
-// const Tour = require('../models/tourModel');
 const bookingSchema = new mongoose.Schema({
-  user: {
+  tourGuide: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
@@ -21,10 +18,6 @@ const bookingSchema = new mongoose.Schema({
     type: String,
     enum: ['pending', 'confirmed', 'cancelled'],
     default: 'pending'
-  },
-  adminNotes: {
-    type: String,
-    default: ''
   },
   // Additional fields for tourist side
   numberOfPeople: {

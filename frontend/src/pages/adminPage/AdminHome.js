@@ -5,8 +5,11 @@ const AdminHome = () => {
   return (
     <>
     <TopNav />
+    
     <div>Admin pages</div></>
   )
 }
+// api key
+// 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
 
 export default AdminHome

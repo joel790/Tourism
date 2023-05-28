@@ -70,5 +70,5 @@ const tourSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-module.exports = mongoose.model("Tour", tourSchema);
+const Tour=mongoose.model("Tour", tourSchema);
+module.exports = Tour;

@@ -11,7 +11,7 @@ const protect = asyncHandler(async (req, res, next) => {
     req.headers.authorization.startsWith("Bearer")
   ) {
     try {
-      //get tocken from header
+      //get token from header
       token = req.headers.authorization.split(" ")[1];
       //verify tocken
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -31,6 +31,7 @@ const protect = asyncHandler(async (req, res, next) => {
     throw new Error("Not authorized, no token");
   }
 });
+
 
 // Role-based middleware
 const admin = (req, res, next) => {

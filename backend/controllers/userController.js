@@ -10,7 +10,6 @@ const generateToken = (id) => {
 // register users
 exports.registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-
   // Validation
   if (!name || !email || !password) {
     res.status(400);
@@ -20,7 +19,6 @@ exports.registerUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Password must be up to 8 characters");
   }
-
   // Check if user email already exists
   const userExists = await User.findOne({ email });
 
@@ -49,7 +47,7 @@ exports.registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
-    const { _id, name, email, role, photo, phone, password } = user;
+    const { _id, name, email, role, photo, phone,  } = user;
     res.status(201).json({
       _id,
       name,
@@ -67,7 +65,6 @@ exports.registerUser = asyncHandler(async (req, res) => {
 // Login User
 exports.loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-
   // Validate user input
   if (!email || !password) {
     res.status(400);
@@ -87,7 +84,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
     res.status(401);
     throw new Error("Invalid credentials");
   }
-
+  
   // Generate token
   const token = generateToken(user._id);
 
@@ -99,6 +96,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
     sameSite: "none",
     secure: true,
   });
+
 
   if (user) {
     const { _id, name, email, role, photo, phone } = user;

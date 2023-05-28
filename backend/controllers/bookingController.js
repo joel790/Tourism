@@ -1,18 +1,32 @@
 const asyncHandler = require("express-async-handler");
 const Booking = require("../models/bookingModel");
+const Tour = require("../models/tourModel");
+const User = require("../models/userModel");
+const TourGuide = require("../models/tourguideModel");
 
-exports.createBooking = asyncHandler(async(req,res)=>{
-    const { userId, tourId, date } = req.body;
-    const newBooking = new Booking({
-      user: userId,
-      tour: tourId,
-      date,
-    });
 
-    await newBooking.save();
 
-    res.status(201).json({ message: 'Booking created successfully' });
+exports.createBooking = asyncHandler(async (req, res) => {
+  const { tourguideId, tourId, date,numberOfPeople,contactNumber } = req.body;
 
+  // Assuming you have defined the User and Tour schemas
+  const tourGuide = await TourGuide.findById(tourguideId);
+  const tour = await Tour.findById(tourId);
+  if (!tourGuide || !tour) {
+    res.status(400).json({ message: 'User or tour not found' });
+    return;
+  }
+  const newBooking = new Booking({
+    tourGuide: tourGuide,
+    tour: tour,
+    date,
+    numberOfPeople,
+    contactNumber 
+  });
+
+  await newBooking.save();
+
+  res.status(201).json({ message: 'Booking created successfully' });
 });
 
 exports.getAllBookings = asyncHandler(async (req, res) => {

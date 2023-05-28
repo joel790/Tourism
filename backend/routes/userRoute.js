@@ -7,7 +7,7 @@ const { registerUser,
         getUser
          } = require("../controllers/userController");
          
-const { protect, admin } = require("../moddleWare/authMiddleware");
+const { protect, admin, } = require("../moddleWare/authMiddleware");
          
 
 const router=express.Router();

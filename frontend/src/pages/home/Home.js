@@ -48,6 +48,7 @@ const Home = () => {
           <img src={heroImg} alt="Tourism"/>
         </div>
       </section>
+     
     </div>
   );
 };
@@ -55,8 +56,8 @@ const Home = () => {
 const NumberText = ({ num, text }) => {
   return (
     <div className="--mr">
-      <h3 className="--color-white">{num}</h3>
-      <p className="--color-white">{text}</p>
+      <h3 className="num">{num}</h3>
+      <p className="num">{text}</p>
     </div>
   );
 };
