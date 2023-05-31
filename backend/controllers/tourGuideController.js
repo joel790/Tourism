@@ -15,7 +15,6 @@ exports.createTourGuide = asyncHandler(async (req, res) => {
     message: err.message,
   });
 });
-
 exports.getTourGuide = asyncHandler(async (req, res) => {
   const tourGuide = await TourGuide.findById(req.params.id);
   res.status(200).json({
@@ -44,7 +43,6 @@ exports.getTourGuides = asyncHandler(async (req, res) => {
       message: err.message,
     });
   });
-
 exports.updateTourGuide = asyncHandler(async (req, res) => {
   const tourGuide = await TourGuide.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -62,7 +60,6 @@ exports.updateTourGuide = asyncHandler(async (req, res) => {
     message: err.message,
   });
 });
-
 exports.deleteTourGuide = async (req, res) => {
   await TourGuide.findByIdAndDelete(req.params.id);
   res.status(204).json({

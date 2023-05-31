@@ -10,7 +10,6 @@ import Dashboard from "../dashboard/Dashboard";
 import Hotels from "../hotels/Hotels";
 import Cars from "../cars/Cars";
 import { SidebarData } from "../../../data/Data";
-import TopNav from "../../../components/header/TopNav";
 
 const TourGuideHome = () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState(SidebarData[0].link);
@@ -18,7 +17,6 @@ const TourGuideHome = () => {
   const handleMenuItemClick = (link) => {
     setSelectedMenuItem(link);
   };
-
   const renderPageContent = () => {
     switch (selectedMenuItem) {
       case "/dashboard":
@@ -65,7 +63,8 @@ const TourGuideHome = () => {
   return (
     <div className="GuideMain">
       <div className="GuideHome">
-        <Sidebar onMenuItemClick={handleMenuItemClick} />        <div className="content">{renderPageContent()}</div>
+        <Sidebar onMenuItemClick={handleMenuItemClick} />   
+             <div className="content">{renderPageContent()}</div>
       </div>
     </div>
   );

@@ -41,23 +41,23 @@ const Login = () => {
       password,
     };
     setIsLoading(true);
-    
+
     try {
-         const data = await loginUser(userData);
-         console.log(data);
-         await dispatch(SET_LOGIN(true));
-         await dispatch(SET_NAME(data.name));
-   
-         if (data.role === "admin") {
-           navigate("/admin");
-         } else if (data.role === "tourGuide") {
-           navigate("/tourguide");
-         } else {
-           navigate("/user");
-         }
-   
-         setIsLoading(false);
-       } catch (error) {
+      const data = await loginUser(userData);
+      console.log(data);
+      await dispatch(SET_LOGIN(true));
+      await dispatch(SET_NAME(data.name));
+      navigate("/");
+      if (data.role === "admin") {
+        navigate("/admin");
+      } else if (data.role === "tourGuide") {
+        navigate("/tourguide");
+      } else {
+        navigate("/user");
+      }
+
+      setIsLoading(false);
+    } catch (error) {
       setIsLoading(false);
     }
   };
@@ -92,11 +92,17 @@ const Login = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <Link to="/forgot" >forgot password?</Link><br/><br/>
-            <button className="--btn --btn-primary">Login</button><br/>
+            <Link to="/forgot">forgot password?</Link>
+            <br />
+            <br />
+            <button className="--btn --btn-primary">Login</button>
+            <br />
             <span>
               <p>
-                Don't Have an account? &nbsp; <Link to="/register" className="link-yellow">SignUp</Link>
+                Don't Have an account? &nbsp;{" "}
+                <Link to="/register" className="link-yellow">
+                  SignUp
+                </Link>
               </p>
             </span>
           </form>

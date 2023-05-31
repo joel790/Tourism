@@ -5,7 +5,6 @@ const AdminHome = () => {
   return (
     <>
     <TopNav />
-    
     <div>Admin pages</div></>
   )
 }

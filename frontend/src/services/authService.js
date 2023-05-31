@@ -36,9 +36,19 @@ export const loginUser = async (userData) => {
       userData
     );
     if (response.statusText === "OK") {
+      
       toast.success("Login Successful...");
     }
-    return response.data;
+    const data = response.data;
+    const user = data.data.user;
+    let role = "user";
+    if (user.role === "admin") {
+      role = "admin";
+    } else if (user.role === "tourGuide") {
+      role = "tourGuide";
+    }
+
+    return { user, role, token: data.token };
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||

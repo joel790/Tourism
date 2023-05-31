@@ -1,26 +1,22 @@
-const express= require("express");
-const { registerUser,
-        loginUser,
-        logoutUser,
-        updateUser,
-        getUsers,
-        getUser
-         } = require("../controllers/userController");
-         
-const { protect, admin, } = require("../moddleWare/authMiddleware");
-         
+const express = require("express");
+const {
+  registerUser,
+  loginUser,
+  logoutUser,
+  updateUser,
+  getUsers,
+  getUser,
+} = require("../controllers/userController");
 
-const router=express.Router();
+const { protect, admin } = require("../moddleWare/authMiddleware");
 
-router.post("/register",registerUser);
-router.post("/login",loginUser);
-router.get("/logout",logoutUser);
-router.get("/",getUsers);
-router.get("/me",protect,getUser);
+const router = express.Router();
 
-router.put("/:id",protect,admin, updateUser);
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+router.get("/logout", logoutUser);
+router.get("/", getUsers);
+router.get("/:id", protect, getUser);
+router.put("/:id", protect, admin, updateUser);
 
-
-
-
-module.exports=router;
+module.exports = router;

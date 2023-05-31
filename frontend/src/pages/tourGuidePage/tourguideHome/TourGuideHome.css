@@ -14,10 +14,7 @@
     grid-template-columns: 20rem auto;
     background-color: #fff;
    border-radius: 1rem;
-
-
 }
-
 .content {
   position: relative;
     display: flex;

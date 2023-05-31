@@ -4,16 +4,13 @@ const Tour = require("../models/tourModel");
 const User = require("../models/userModel");
 const TourGuide = require("../models/tourguideModel");
 
-
-
 exports.createBooking = asyncHandler(async (req, res) => {
-  const { tourguideId, tourId, date,numberOfPeople,contactNumber } = req.body;
-
+  const { tourguideId, tourId, date, numberOfPeople, contactNumber } = req.body;
   // Assuming you have defined the User and Tour schemas
   const tourGuide = await TourGuide.findById(tourguideId);
   const tour = await Tour.findById(tourId);
   if (!tourGuide || !tour) {
-    res.status(400).json({ message: 'User or tour not found' });
+    res.status(400).json({ message: "User or tour not found" });
     return;
   }
   const newBooking = new Booking({
@@ -21,12 +18,11 @@ exports.createBooking = asyncHandler(async (req, res) => {
     tour: tour,
     date,
     numberOfPeople,
-    contactNumber 
+    contactNumber,
   });
 
   await newBooking.save();
-
-  res.status(201).json({ message: 'Booking created successfully' });
+  res.status(201).json({ message: "Booking created successfully" });
 });
 
 exports.getAllBookings = asyncHandler(async (req, res) => {
@@ -44,7 +40,7 @@ exports.getAllBookings = asyncHandler(async (req, res) => {
   });
 });
 exports.getBooking = asyncHandler(async (req, res) => {
-  const bookingId=req.params.bookingId;
+  const bookingId = req.params.bookingId;
   const booking = await Booking.findById(bookingId);
   res.status(200).json({
     status: "success",
@@ -67,7 +63,7 @@ exports.updateBookingStatus = asyncHandler(async (req, res) => {
 
   if (!booking) {
     res.status(404);
-    throw new Error('Booking not found');
+    throw new Error("Booking not found");
   }
 
   booking.status = status;
