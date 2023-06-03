@@ -4,6 +4,8 @@ const bodyParser=require("body-parser");
 const dotenv=require("dotenv").config();
 const cors=require("cors");
 const userRoute=require("./routes/userRoute");
+const feedbackRoutes = require('./routes/feedbackRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
 const errorHandler = require("./moddleWare/errorMiddleware");
 const app=express();
 
@@ -18,6 +20,8 @@ app.use(bodyParser.json())
 
 //route middleware
 app.use("/api/users",userRoute);
+app.use('/api/feedbacks', feedbackRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 
 //routs
