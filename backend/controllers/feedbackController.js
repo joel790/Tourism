@@ -3,8 +3,8 @@ const Feedback = require('../models/feedbackModel');
 // Create a new feedback
 exports.createFeedback = async (req, res, next) => {
   try {
-    const { tourist, rating, comment } = req.body;
-    const feedback = await Feedback.create({ tourist, rating, comment });
+    const { user, rating, comment } = req.body;
+    const feedback = await Feedback.create({ user, rating, comment });
     res.status(201).json({ success: true, feedback });
   } catch (error) {
     next(error);
@@ -14,7 +14,7 @@ exports.createFeedback = async (req, res, next) => {
 // Get all feedbacks
 exports.getAllFeedbacks = async (req, res, next) => {
   try {
-    const feedbacks = await Feedback.find().populate('tourist');
+    const feedbacks = await Feedback.find().populate('user');
     res.status(200).json({ success: true, feedbacks });
   } catch (error) {
     next(error);
@@ -25,7 +25,7 @@ exports.getAllFeedbacks = async (req, res, next) => {
 exports.getFeedbackById = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const feedback = await Feedback.findById(id).populate('tourist');
+    const feedback = await Feedback.findById(id).populate('user');
     if (!feedback) {
       return res.status(404).json({ success: false, message: 'Feedback not found' });
     }
