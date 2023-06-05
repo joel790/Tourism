@@ -5,10 +5,8 @@ import {IoMdNotificationsOutline} from "react-icons/io"
 const TopNav = () => {
   return (
     <div className='TopNav'>
-     <div className='icons'>
-      <AiOutlineMail/>
-      <IoMdNotificationsOutline/>
-     </div>
+      <AiOutlineMail size={25} color='white'/>
+      <IoMdNotificationsOutline size={25} color='white' p/>
     </div>
   )
 }

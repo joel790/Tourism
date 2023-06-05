@@ -50,10 +50,13 @@ const Login = () => {
       navigate("/");
       if (data.role === "admin") {
         navigate("/admin");
+        toast.success("Login Successful...");
       } else if (data.role === "tourGuide") {
         navigate("/tourguide");
+        toast.success("Login Successful...");
       } else {
         navigate("/user");
+        toast.success("Login Successful...");
       }
 
       setIsLoading(false);
@@ -64,6 +67,7 @@ const Login = () => {
   return (
     <div className="auth">
       {isLoading && <Loader />}
+     
       <Card>
         <div className="form">
           <h2>Welcome Back!</h2>

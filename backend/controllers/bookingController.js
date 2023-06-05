@@ -4,25 +4,42 @@ const Tour = require("../models/tourModel");
 const User = require("../models/userModel");
 const TourGuide = require("../models/tourguideModel");
 
+const { v4: uuidv4 } = require('uuid');
+
 exports.createBooking = asyncHandler(async (req, res) => {
-  const { tourguideId, tourId, date, numberOfPeople, contactNumber } = req.body;
-  // Assuming you have defined the User and Tour schemas
-  const tourGuide = await TourGuide.findById(tourguideId);
-  const tour = await Tour.findById(tourId);
+  const { tourGuideId, tourId, date, numberOfPeople, contactNumber } = req.body;
+
+  const tourGuide = await TourGuide.findOne(tourGuideId);
+  const tour = await Tour.findOne(tourId);
+
   if (!tourGuide || !tour) {
     res.status(400).json({ message: "User or tour not found" });
     return;
   }
+
   const newBooking = new Booking({
-    tourGuide: tourGuide,
-    tour: tour,
+    bookingId: uuidv4(),
+    tourGuide: tourGuide._id,
+    tour: tour._id,
     date,
     numberOfPeople,
     contactNumber,
   });
 
   await newBooking.save();
-  res.status(201).json({ message: "Booking created successfully" });
+
+  // Populate the tourGuide and tour fields of the newBooking object
+  await newBooking.populate('tourGuide').execPopulate();
+  await newBooking.populate('tour').execPopulate();
+
+  res.status(201).json({
+    data: {
+      newBooking,
+      tourGuideName: newBooking.tourGuide.name,
+      tourName: newBooking.tour.name,
+    },
+    message: "Booking created successfully"
+  });
 });
 
 exports.getAllBookings = asyncHandler(async (req, res) => {

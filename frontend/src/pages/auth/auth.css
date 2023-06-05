@@ -4,10 +4,13 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0eaea;
+
+  background-image:url("../../assets/addis.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   
 }
-
 
 .input-wrapper {
   

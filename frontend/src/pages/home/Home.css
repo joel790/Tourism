@@ -1,5 +1,5 @@
 .home {
-  background-color: #6b7ee7;
+  background-color: #2d9c7b;
       min-height: 100vh;
   
     & nav {
@@ -36,7 +36,7 @@
   .hero-text {
     width: 50%;
     & > * {
-      color: #fff;
+      color: #ffffff;
       margin-bottom: 2rem;
     }
     & > h2 span {
@@ -70,7 +70,6 @@
   }
   .--flex-start {
     display: flex;
-    justify-content: start;
     align-items: space-evenly;
     gap: 1rem;
    

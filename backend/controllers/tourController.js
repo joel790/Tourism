@@ -19,18 +19,16 @@ exports.createTour = asyncHandler(async (req, res) => {
 
 // Get all tours
 exports.getAllTours = asyncHandler(async (req, res) => {
-  const tours = await Tour.find();
-  res.status(200).json({
-    status: "success",
-    results: tours.length,
-    data: {
-      tours,
-    },
-  });
-  res.status(404).json({
-    status: "fail",
-    message: error.message,
-  });
+  const tour = await Tour.find();
+  if (tour) {
+    res.status(200).json({
+      data: {
+        tour,
+      },
+    });
+  } else {
+    throw new Error("tour not found");
+  }
 });
 // get a single tour
 exports.getTour = asyncHandler(async (req, res) => {

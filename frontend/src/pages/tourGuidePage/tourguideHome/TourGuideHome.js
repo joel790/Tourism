@@ -1,5 +1,3 @@
-// TourGuideHome.js
-
 import React, { useState } from "react";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import "./TourGuideHome.css";
@@ -9,11 +7,15 @@ import Bookings from "../bookings/Bookings";
 import Dashboard from "../dashboard/Dashboard";
 import Hotels from "../hotels/Hotels";
 import Cars from "../cars/Cars";
-import { SidebarData } from "../../../data/Data";
+import { TourGuideSidebarData } from "../../../data/Data";
+import Guides from "../guides/Guides";
+import TopNav from "../../../components/header/TopNav";
 
 const TourGuideHome = () => {
-  const [selectedMenuItem, setSelectedMenuItem] = useState(SidebarData[0].link);
-
+  const [selectedMenuItem, setSelectedMenuItem] = useState(
+    TourGuideSidebarData[0].link
+  );
+  const role = "tourGuide";
   const handleMenuItemClick = (link) => {
     setSelectedMenuItem(link);
   };
@@ -35,6 +37,12 @@ const TourGuideHome = () => {
         return (
           <>
             <Tourists />
+          </>
+        );
+      case "/guides":
+        return (
+          <>
+            <Guides />
           </>
         );
       case "/packages":
@@ -63,8 +71,11 @@ const TourGuideHome = () => {
   return (
     <div className="GuideMain">
       <div className="GuideHome">
-        <Sidebar onMenuItemClick={handleMenuItemClick} />   
-             <div className="content">{renderPageContent()}</div>
+        <Sidebar {...{ role }} onMenuItemClick={handleMenuItemClick} />
+        <div className="content">
+          <TopNav />
+          {renderPageContent()}
+        </div>
       </div>
     </div>
   );

@@ -1,17 +1,13 @@
-import React from 'react'
-import "./Dashboard.css"
-import TopNav from "../../../components/header/TopNav"
+import React from "react";
+import "./Dashboard.css";
 const Dashboard = () => {
   return (
+    <div className="MainDashboard">
+      
+        <h1>Dashboard page</h1>
      
-    <div className='MainDashboard'>
-      <TopNav/>
-      <div className='MainContainer'>
+    </div>
+  );
+};
 
-      </div>
-      Dashboard pages
-      </div>
-  )
-}
-
-export default Dashboard
+export default Dashboard;

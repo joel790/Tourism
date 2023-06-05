@@ -1,19 +1,11 @@
-
-.GuideMain{
-    height: 100vh;
-    background-color: #a2d6c0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.GuideHome{
+.UserHome{
     display:grid;
     height: 100%;
     width: 100%;
     overflow: hidden;
     grid-template-columns: 22rem auto;
     background-color: #fff;
-   border-radius: 1rem;
+    border-radius: 1rem;
 }
 .content {
   position: relative;
@@ -22,5 +14,10 @@
     height: 100%;
     width: 100%;
     background-color: #ffffff;
+   
 }
-  
+.container{
+    height: 95%;
+    width: 98%;
+    
+}

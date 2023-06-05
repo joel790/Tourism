@@ -21,6 +21,7 @@
     "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.1.0",
+    "uuid": "^9.0.0",
     "zxcvbn": "^4.4.2"
   }
 }

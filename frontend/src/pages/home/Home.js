@@ -3,6 +3,7 @@ import { SiEthiopianairlines } from "react-icons/si";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import heroImg from "../../assets/tourism.jpg";
+import btmImg from "../../assets/lalibela1.jpg";
 const Home = () => {
   return (
     <div className="home">
@@ -29,9 +30,11 @@ const Home = () => {
             A tourism management system is a software solution that helps
             tourism businesses manage their operations and services more
             efficiently. It typically includes features for booking and
-            reservations, customer relationship management, inventory
-            management, accounting and billing, marketing and promotions, and
-            analytics reporting.
+            reservations, customer relationship management, tourist information
+            management , payment or financial management , travel related
+            service management and since Ethiopia has very amazing tourist
+            destinations it is better to have such like solutions to manage the
+            places and heritages .
           </p>
           <div className="hero-buttons">
             <button className="--btn --btn-secondary">
@@ -39,16 +42,15 @@ const Home = () => {
             </button>
           </div>
           <div className="--flex-start">
-            <NumberText num="600k+" text="Tourists/year"/>
-            <NumberText num="$400M+" text="Anual earning"/>
-
+            <NumberText num="600k+" text="Tourists/year" />
+            <NumberText num="$400M+" text="Anual earning" />
           </div>
         </div>
         <div className="hero-image">
-          <img src={heroImg} alt="Tourism"/>
+          <img src={heroImg} alt="Tourism" />
         </div>
       </section>
-     
+      
     </div>
   );
 };

@@ -2,15 +2,29 @@ import React, { useState } from "react";
 import "./Sidebar.css";
 import { TbPlaneDeparture } from "react-icons/tb";
 
-import { SidebarData } from "../../data/Data";
+import {
+  TourGuideSidebarData,
+  UserSidebarData,
+  AdminSidebarData,
+} from "../../data/Data";
 
-const Sidebar = ({ onMenuItemClick }) => {
+const Sidebar = (props) => {
+  const { role, onMenuItemClick } = props;
   const [selected, setSelected] = useState(0);
 
   const handleMenuItemClick = (link, index) => {
     setSelected(index);
     onMenuItemClick(link);
   };
+  let SidebarData = "";
+  if (role === "admin") {
+    SidebarData = AdminSidebarData;
+  } else if (role === "user") {
+    SidebarData = UserSidebarData;
+  } else {
+    SidebarData = TourGuideSidebarData;
+  }
+
   return (
     <div className="Sidebar">
       {/* logo */}

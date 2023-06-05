@@ -3,9 +3,8 @@ const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 
 const generateToken = (id) => {
-  return jwt.sign({id}, process.env.JWT_SECRET, { expiresIn: "1d" });
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
-
 // register users
 exports.registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -46,7 +45,7 @@ exports.registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
-    const { _id, name, email, role, photo, phone,  } = user;
+    const { _id, name, email, role, photo, phone } = user;
     res.status(201).json({
       _id,
       name,
@@ -92,13 +91,11 @@ exports.loginUser = asyncHandler(async (req, res) => {
     secure: true,
   });
 
-
   if (user) {
-    // const { _id, name, email, role, photo, phone } = user;
     res.status(201).json({
-     data:{
+      data: {
         user,
-     },
+      },
       token,
     });
   } else {
@@ -134,23 +131,15 @@ exports.updateUser = asyncHandler(async (req, res) => {
     throw new Error("User not found");
   }
 
-  // Check if the current user is an admin
-  const currentUser = req.user;
-  if (!currentUser || !currentUser.isAdmin) {
-    res.status(401);
-    throw new Error("Not authorized as an admin");
-  }
-
   user.name = req.body.name || user.name;
   user.email = req.body.email || user.email;
-  user.isAdmin = req.body.isAdmin || user.isAdmin;
+  user.role = req.body.role || user.role;
 
   const updatedUser = await user.save();
 
   res.json({
-    _id: updatedUser._id,
-    name: updatedUser.name,
-    email: updatedUser.email,
-    isAdmin: updatedUser.isAdmin,
+   data:{
+    updatedUser
+   }
   });
 });

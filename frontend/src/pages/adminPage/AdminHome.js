@@ -1,14 +1,27 @@
-import React from 'react'
 import TopNav from '../../components/header/TopNav'
+import Sidebar from '../../components/sidebar/Sidebar'
+import { AdminSidebarData } from '../../data/Data';
+import React, { useState } from "react";
 
+import "./AdminHome.css"
 const AdminHome = () => {
+  const [selectedMenuItem, setSelectedMenuItem] = useState(AdminSidebarData[0].link);
+  const role="admin";
+  const handleMenuItemClick = (link) => {
+    setSelectedMenuItem(link);
+  };
   return (
-    <>
-    <TopNav />
-    <div>Admin pages</div></>
+    
+    <div className="AdminHome">
+<Sidebar {...{ role }} onMenuItemClick={handleMenuItemClick} />
+    <div className="content">
+      <TopNav/>
+      <div className='container'>
+      <h1>AdminHome page </h1>
+      </div>
+      </div>
+  </div>
   )
 }
-// api key
-// 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
 
 export default AdminHome
