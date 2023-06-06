@@ -18,7 +18,7 @@ const UserHome = () => {
       <div className="content">
         <TopNav />
         <div className="container">
-          <h1>UserHome page </h1>
+          <h1>UserHome content page </h1>
         </div>
       </div>
     </div>

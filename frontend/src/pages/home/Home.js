@@ -3,7 +3,6 @@ import { SiEthiopianairlines } from "react-icons/si";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import heroImg from "../../assets/tourism.jpg";
-import btmImg from "../../assets/lalibela1.jpg";
 const Home = () => {
   return (
     <div className="home">
@@ -25,17 +24,23 @@ const Home = () => {
       {/* hero section */}
       <section className="container hero">
         <div className="hero-text">
-          <h1> Ethiopia Tourism Management Solution</h1>
-          <p>
-            A tourism management system is a software solution that helps
-            tourism businesses manage their operations and services more
-            efficiently. It typically includes features for booking and
-            reservations, customer relationship management, tourist information
-            management , payment or financial management , travel related
-            service management and since Ethiopia has very amazing tourist
-            destinations it is better to have such like solutions to manage the
-            places and heritages .
-          </p>
+          <h1 className="h1tag"> Ethiopia Tourism Management Solution</h1>
+          <div className="pbefore">
+            <div >
+              
+            </div>
+            <p>
+              A tourism management system is a software solution that helps
+              tourism businesses manage their operations and services more
+              efficiently. It typically includes features for booking and
+              reservations, customer relationship management, tourist information
+              management , payment or financial management , travel related
+              service management and since Ethiopia has very amazing tourist
+              destinations it is better to have such like solutions to manage the
+              places and heritages .
+            </p>
+          </div>
+          
           <div className="hero-buttons">
             <button className="--btn --btn-secondary">
               <Link to="/login">See More</Link>
@@ -48,6 +53,7 @@ const Home = () => {
         </div>
         <div className="hero-image">
           <img src={heroImg} alt="Tourism" />
+          
         </div>
       </section>
       

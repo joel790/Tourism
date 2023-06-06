@@ -12,8 +12,7 @@ const bookingRoute = require("./routes/bookingRoute");
 const packageRoute = require("./routes/packageRoute");
 // const session= require("express-session");
 const app = express();
-//chat gpt api key
-//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
+
 const PORT = process.env.PORT || 5000;
 
 //middlewares

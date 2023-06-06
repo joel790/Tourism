@@ -29,7 +29,7 @@ const Login = () => {
     e.preventDefault();
 
     if (!email || !password) {
-      return toast.error("All fields are required");
+      return toast.error("please fill al the required");
     }
 
     if (!validateEmail(email)) {
@@ -46,8 +46,7 @@ const Login = () => {
       const data = await loginUser(userData);
       console.log(data);
       await dispatch(SET_LOGIN(true));
-      await dispatch(SET_NAME(data.name));
-      navigate("/");
+      await dispatch(SET_NAME(data.user.name));
       if (data.role === "admin") {
         navigate("/admin");
         toast.success("Login Successful...");
@@ -67,7 +66,7 @@ const Login = () => {
   return (
     <div className="auth">
       {isLoading && <Loader />}
-     
+
       <Card>
         <div className="form">
           <h2>Welcome Back!</h2>

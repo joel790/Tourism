@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-top: 4rem;
+    padding-top: 3rem;
     height: 100vh;
     transition:  all 300ms ease;
     background-color: #2d9c7b;
@@ -12,15 +12,14 @@
     font-weight: bold;
     height: 5rem;
     font-size: 22px;
-    gap: 3rem;
     align-items: center;
-    justify-content: center;
-    margin-left: 0.3rem;
-  
+    justify-content: space-evenly;
+    /* background-color: #9c8181; */
     
 }
 .Logo>span{
-    color: #7dff04;
+    color: yellow;
+    font-family: 'Times New Roman', Times, serif
 }
 .menu{
     margin-top: 4rem;

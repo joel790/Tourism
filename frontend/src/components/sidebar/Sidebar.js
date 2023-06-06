@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import { TbPlaneDeparture } from "react-icons/tb";
+import { TbPlaneDeparture, SiEthiopianairlines} from "react-icons/si";
 
 import {
   TourGuideSidebarData,
@@ -29,7 +29,7 @@ const Sidebar = (props) => {
     <div className="Sidebar">
       {/* logo */}
       <div className="Logo">
-        <TbPlaneDeparture size={40} color="blue" />
+      <SiEthiopianairlines size={40} color="yellow"/>
         <span>TMS</span>
       </div>
       <hr />
@@ -43,7 +43,7 @@ const Sidebar = (props) => {
               key={index}
               onClick={() => handleMenuItemClick(item.link, index)}
             >
-              <item.icon />
+              <item.icon  />
               <span>{item.heading}</span>
             </div>
           );

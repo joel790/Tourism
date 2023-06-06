@@ -19,5 +19,8 @@
 .container{
     height: 95%;
     width: 98%;
+    & h1{
+        color: #000;
+    }
     
 }
