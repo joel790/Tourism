@@ -34,7 +34,13 @@ res.status(201).json({
 });
 });
 
+const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({});
+  res.json(users);
+});
+
 
 module.exports = {
   registerUser,
+  getUsers,
 };
