@@ -1,5 +1,5 @@
 .home {
-  background-color: #2d9c7b;
+  background-color: #1ddba2;
       min-height: 100vh;
   
     & nav {
@@ -35,9 +35,10 @@
   
   .hero-text {
     & .h1tag{
-       border: 1px dashed #11e3ff;
+       border: 1px solid #4fa5b1;
+       border-radius: 10px;
        padding: 20px;
-       color: #02fa55;
+       color: #fffb04;
     }
    
     width: 50%;
@@ -50,16 +51,19 @@
       height: 300px;
       align-items: center;
       justify-content: start;
+      margin-left: 3rem;
       display: flex;
       flex-direction: row;
       &>p{
-        color: white
+        color: #ffffff;
+       
+        
       }
       & div{
         margin-right: 10px;
         width: 6rem;
-        height: 240px;
-        background-color: aqua;
+        height: 250px;
+        background-color: #7c19b6;
         border-radius: 1rem;
       }
     }

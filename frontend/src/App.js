@@ -5,7 +5,7 @@ import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import Reset from "./pages/auth/Reset";
 import Forgot from "./pages/auth/Forgot";
-import AdminHome from "./pages/adminPage/AdminHome";
+import AdminHome from "./pages/adminPage/adminHome/AdminHome";
 import TourGuideHome from "./pages/tourGuidePage/tourguideHome/TourGuideHome";
 import UserHome from "./pages/userPage/UserHome";
 import axios from "axios";

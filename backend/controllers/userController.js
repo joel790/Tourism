@@ -13,9 +13,9 @@ exports.registerUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Please fill in all fields");
   }
-  if (password.length < 8) {
+  if (password.length < 6) {
     res.status(400);
-    throw new Error("Password must be up to 8 characters");
+    throw new Error("Password must be up to 6 characters");
   }
   // Check if user email already exists
   const userExists = await User.findOne({ email });
@@ -45,21 +45,19 @@ exports.registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
-    const { _id, name, email, role, photo, phone } = user;
     res.status(201).json({
-      _id,
-      name,
-      email,
-      role,
-      photo,
-      phone,
-      token,
+      data:{
+        user,
+      }
     });
   } else {
     res.status(400);
     throw new Error("Invalid credentials");
   }
 });
+
+
+
 // Login User
 exports.loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;

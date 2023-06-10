@@ -7,6 +7,6 @@ const router=express.Router();
 router.get("/",getPackages);
 router.post("/",protect,tourGuide,createPackage);
 // router.patch("/:id",updatePackage);
-router.get("/:id",getPackage);
+router.get("/:id",protect,getPackage);
 router.delete("/:id",deletePackage);
 module.exports =router;

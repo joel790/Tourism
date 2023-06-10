@@ -31,26 +31,42 @@
     align-items: center;
     transition: all 300s ease;
   }
-  .add-user-popup {
+  .add-tour-popup {
     border-radius: 10px;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #effafc;
     width: 400px;
-    height: 500px;
+    max-height: calc(100vh - 6rem);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 3rem auto;
+    overflow-y: auto;
   }
   
-  .add-user-popup input {
-    width: 300px;
+  .add-tour-popup input,
+  .add-tour-popup textarea {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
     padding: 10px;
-    margin-bottom: 10px;
+
   }
+  .add-tour-popup textarea {
+    position: relative;
+  }
+  .selection{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow:10px #cec5c5;
+    margin-bottom: 1rem;
+    display: flex;
+  }
+ 
   
-  .add-user-popup button {
+  .add-tour-popup button {
     padding: 10px 20px;
     background-color: #4caf50;
     color: #fff;
@@ -59,6 +75,6 @@
     cursor: pointer;
   }
   
-  .add-user-popup button:hover {
+  .add-tour-popup button:hover {
     background-color: #45a049;
   }

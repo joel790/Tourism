@@ -19,18 +19,13 @@ export const AdminSidebarData = [
   {
     icon: AiOutlineUsergroupAdd,
     heading: "GuideCompanies",
-    link: "/guides",
+    link: "/guideCompany",
   },
 
   {
     icon: AiOutlineHome,
     heading: "Destinations",
-    link: "/hotels",
-  },
-  {
-    icon: BiTaxi,
-    heading: "Cars",
-    link: "/cars",
+    link: "/destination",
   },
 ];
 
@@ -47,7 +42,7 @@ export const TourGuideSidebarData = [
   },
   {
     icon: AiOutlineUsergroupAdd,
-    heading: "Tourists",
+    heading: "Customers",
     link: "/tourists",
   },
   {

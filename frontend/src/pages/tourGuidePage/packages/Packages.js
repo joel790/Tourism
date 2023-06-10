@@ -1,9 +1,8 @@
 import React from "react";
 import "./Packages.css";
 import MyTable from "../../../components/dataTable/DataTable";
-
 const Package = () => {
-  const packageColumns = [
+   const packageColumns = [
     { name: "ID", selector: "id", sortable: true },
     { name: "Name", selector: "name", sortable: true },
     { name: "Price", selector: "price", sortable: true },
