@@ -3,3 +3,10 @@
     width: 98%;
   
 }
+.Actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    
+}

@@ -1,11 +1,13 @@
 .table-wrapper {
     height: 95%;
     overflow: auto;
+    width: 98%;
+    position: absolute;
     background-color: #ffffff;
     box-shadow: 0 0 5px grey;
     margin-left: 15px;
     margin-top: 15px;
-  }
+ }
   .search-input {
     width: 200px;
     margin-bottom: 5px;
