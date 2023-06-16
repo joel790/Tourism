@@ -44,6 +44,8 @@ export const loginUser = async (userData) => {
       role = "admin";
     } else if (user.role === "tourGuide") {
       role = "tourGuide";
+    }else if(user.role==="hotel"){
+      role="hotel";
     }
 
     return { user, role, token: data.token };

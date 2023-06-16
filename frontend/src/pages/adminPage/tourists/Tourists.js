@@ -8,7 +8,6 @@ const Tourists = () => {
     // Define the logic for handling the edit action
     console.log("Edit action clicked for row:", row);
   };
-
   const handleDelete = (row) => {
     // Define the logic for handling the delete action
     console.log("Delete action clicked for row:", row);
@@ -46,7 +45,8 @@ const Tourists = () => {
     },
   ];
   return (
-    <div className="MainTourist">
+    
+    <div className="MainTourist">  
       <MyTable
         apiEndpoint="http://localhost:5000/api/users"
         title="Tourists"

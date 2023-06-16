@@ -6,8 +6,10 @@ import Login from "./pages/auth/Login";
 import Reset from "./pages/auth/Reset";
 import Forgot from "./pages/auth/Forgot";
 import AdminHome from "./pages/adminPage/adminHome/AdminHome";
+import HotelHome from "./pages/hotelPage/hotelHome/HotelHome";
+
 import TourGuideHome from "./pages/tourGuidePage/tourguideHome/TourGuideHome";
-import UserHome from "./pages/userPage/UserHome";
+import UserHome from "./pages/userPage/userHome/UserHome";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,9 +21,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/user" element={<UserHome />} />
         <Route path="/admin" element={<AdminHome />} />
         <Route path="/tourguide" element={<TourGuideHome />} />
+        <Route path="/hotel" element={<HotelHome />} />
+        <Route path="/user" element={<UserHome />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/resetPassword/:resetToken" element={<Reset />} />

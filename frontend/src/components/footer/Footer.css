@@ -1,0 +1,16 @@
+.footer{
+    height: 9%;
+    border: 0.5px solid #e0d9d9 ;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    margin-right: 1.65rem;
+    display: flex;
+    gap: 2rem;
+    &>h1{
+        color: aqua;
+    }
+}
+#foot{
+    color: blue;
+}

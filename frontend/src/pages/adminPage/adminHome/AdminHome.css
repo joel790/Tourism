@@ -13,14 +13,13 @@
     overflow: hidden;
     grid-template-columns: 22rem auto;
     background-color: #fff;
-   border-radius: 1rem;
+    border-radius: 1rem;
 }
 .content {
-  position: relative;
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
-    background-color: #ffffff;
 }
   

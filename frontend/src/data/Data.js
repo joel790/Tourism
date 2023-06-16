@@ -67,7 +67,7 @@ export const TourGuideSidebarData = [
   },
 ];
 
-export const UserSidebarData = [
+export const HotelSidebarData = [
   {
     icon: RxDashboard,
     heading: "Dashboard",
@@ -91,6 +91,33 @@ export const UserSidebarData = [
   },
   {
     icon: BiTaxi,
+    heading: "Cars",
+    link: "/cars",
+  },
+];
+
+export const UserNavData = [
+  {
+    heading: "Dashboard",
+    link: "/dashboard",
+  },
+  {
+    heading: "Bookings",
+    link: "/bookings",
+  },
+  {
+    heading: "Destinations",
+    link: "/destinations",
+  },
+  {
+    heading: "Packages",
+    link: "/packages",
+  },
+  {
+    heading: "Hotels",
+    link: "/hotels",
+  },
+  {
     heading: "Cars",
     link: "/cars",
   },

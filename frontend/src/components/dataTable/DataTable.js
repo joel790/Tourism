@@ -51,8 +51,8 @@ const MyTable = ({ apiEndpoint, title, columns, dataKey }) => {
         <Loader />
       ) : (
         <>
-          <button className="add-user-button">Add +</button>
-          <h1>{data.length}</h1>
+          <button className="add-button">Add +</button>
+          <h1Tags>Total:{data.length}</h1Tags>
           <input
             type="text"
             placeholder="Search by name"
