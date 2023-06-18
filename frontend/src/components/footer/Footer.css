@@ -1,16 +1,38 @@
 .footer{
-    height: 9%;
-    border: 0.5px solid #e0d9d9 ;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1rem;
-    margin-right: 1.65rem;
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    background-color:blue;
+    align-items:center;
+    justify-content:center;
+  }
+  
+  .fLists{
+    width: 100%;
     display: flex;
-    gap: 2rem;
-    &>h1{
+    justify-content: space-between;
+    margin-bottom: 50px;
+    background-color:blue;
+    padding-left:30px;
+    padding-right:30px;
+  }
+  
+  .fList{
+    list-style: none;
+    padding-top:30px;
+
+    &>h3{
         color: aqua;
     }
-}
-#foot{
-    color: blue;
-}
+  }
+  
+  .fListItem{
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+  }
+  .fText{
+    color:white;
+    margin-bottom: 1rem;
+    margin-left: 20rem;
+  }

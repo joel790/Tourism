@@ -1,9 +1,10 @@
 import React from 'react'
 import "./Hotels.css"
+import BottomHeader from '../../../components/header/BottomHeader'
 const Hotels = () => {
   return (
     <div className='MainHotel'>
-      <h1> Hotels page</h1>
+      <BottomHeader/>
      </div>
   )
 }
