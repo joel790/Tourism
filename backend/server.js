@@ -7,6 +7,7 @@ const errorHandler = require("./moddleWare/errorMiddleware");
 const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/userRoute");
 const tourGuideRoute = require("./routes/tourGuideRoute");
+const companyRoute = require("./routes/companyRoute");
 const tourRoute = require("./routes/tourRoute");
 const bookingRoute = require("./routes/bookingRoute");
 const packageRoute = require("./routes/packageRoute");
@@ -30,6 +31,7 @@ app.use(
 //route middleware
 app.use("/api/users", userRoute);
 app.use("/api/tourguides", tourGuideRoute);
+app.use("/api/companies", companyRoute);
 app.use("/api/packages", packageRoute);
 app.use("/api/tours", tourRoute);
 app.use("/api/bookings", bookingRoute);

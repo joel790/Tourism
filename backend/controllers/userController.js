@@ -46,17 +46,15 @@ exports.registerUser = asyncHandler(async (req, res) => {
 
   if (user) {
     res.status(201).json({
-      data:{
+      data: {
         user,
-      }
+      },
     });
   } else {
     res.status(400);
     throw new Error("Invalid credentials");
   }
 });
-
-
 
 // Login User
 exports.loginUser = asyncHandler(async (req, res) => {
@@ -136,8 +134,8 @@ exports.updateUser = asyncHandler(async (req, res) => {
   const updatedUser = await user.save();
 
   res.json({
-   data:{
-    updatedUser
-   }
+    data: {
+      updatedUser,
+    },
   });
 });

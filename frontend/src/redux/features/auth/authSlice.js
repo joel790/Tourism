@@ -29,7 +29,10 @@ const authSlice = createSlice({
       state.isLoggedIn = action.payload;
     },
     SET_NAME(state, action) {
-      const name = typeof action.payload === "string" ? action.payload : action.payload.name;
+      const name =
+        typeof action.payload === "string"
+          ? action.payload
+          : action.payload.name;
       localStorage.setItem("name", JSON.stringify(name));
       state.name = name;
     },

@@ -1,6 +1,6 @@
 const TourGuide = require("../models/tourguideModel");
 const asyncHandler = require("express-async-handler");
-const Tour = require('../models/tourModel');
+const Tour = require("../models/tourModel");
 
 // Retrieve the tour object from the database using the tour ID from the frontend
 exports.createTourGuide = asyncHandler(async (req, res) => {
@@ -27,7 +27,9 @@ exports.createTourGuide = asyncHandler(async (req, res) => {
   // Save the new tour guide object to the database
   await newTourGuide.save();
 
-  res.status(201).json({newTourGuide, message: 'Tour guide created successfully' });
+  res
+    .status(201)
+    .json({ newTourGuide, message: "Tour guide created successfully" });
 });
 
 exports.getTourGuide = asyncHandler(async (req, res) => {
@@ -45,19 +47,19 @@ exports.getTourGuide = asyncHandler(async (req, res) => {
   });
 });
 exports.getTourGuides = asyncHandler(async (req, res) => {
-    const tourGuide = await TourGuide.find();
-    res.status(200).json({
-      status: "success",
-      data: {
-        tourGuide,
-      },
-    });
-  
-    res.status(404).json({
-      status: "fail",
-      message: err.message,
-    });
+  const tourGuide = await TourGuide.find();
+  res.status(200).json({
+    status: "success",
+    data: {
+      tourGuide,
+    },
   });
+
+  res.status(404).json({
+    status: "fail",
+    message: err.message,
+  });
+});
 exports.updateTourGuide = asyncHandler(async (req, res) => {
   const tourGuide = await TourGuide.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -75,7 +77,7 @@ exports.updateTourGuide = asyncHandler(async (req, res) => {
     message: err.message,
   });
 });
-exports.deleteTourGuide =asyncHandler (async (req, res) => {
+exports.deleteTourGuide = asyncHandler(async (req, res) => {
   await TourGuide.findByIdAndDelete(req.params.id);
   res.status(204).json({
     status: "success",
