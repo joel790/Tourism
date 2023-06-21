@@ -44,7 +44,6 @@ const Login = () => {
 
     try {
       const data = await loginUser(userData);
-      console.log(data);
       await dispatch(SET_LOGIN(true));
       await dispatch(SET_NAME(data.user.name));
       if (data.role === "admin") {
@@ -53,9 +52,13 @@ const Login = () => {
       } else if (data.role === "tourGuide") {
         navigate("/tourguide");
         toast.success("Login Successful...");
-      } else {
+      } else if(data.role==="hotel"){
+        navigate("/hotel");
+        toast.success("Login Successful...");
+      }else{
         navigate("/user");
         toast.success("Login Successful...");
+
       }
 
       setIsLoading(false);

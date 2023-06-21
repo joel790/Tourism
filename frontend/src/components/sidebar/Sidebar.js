@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import { TbPlaneDeparture, SiEthiopianairlines } from "react-icons/si";
+import { SiEthiopianairlines } from "react-icons/si";
 
 import {
   TourGuideSidebarData,
-  UserSidebarData,
+  HotelSidebarData,
   AdminSidebarData,
 } from "../../data/Data";
 
@@ -19,8 +19,8 @@ const Sidebar = (props) => {
   let SidebarData = "";
   if (role === "admin") {
     SidebarData = AdminSidebarData;
-  } else if (role === "user") {
-    SidebarData = UserSidebarData;
+  } else if (role === "hotel") {
+    SidebarData = HotelSidebarData;
   } else {
     SidebarData = TourGuideSidebarData;
   }

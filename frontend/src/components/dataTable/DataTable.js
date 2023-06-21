@@ -60,6 +60,7 @@ const MyTable = ({ apiEndpoint, title, columns, dataKey }) => {
             onChange={handleSearch}
             className="search-input"
           />
+
           {filteredData.length > 0 ? (
             <DataTable
               className="data-table"

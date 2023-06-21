@@ -1,12 +1,62 @@
 .table-wrapper {
-  height: 95%;
-  overflow: auto;
-  background-color: #ffffff;
-  box-shadow: 0 0 5px grey;
-  margin-left: 15px;
-  margin-top: 55px;
-}
-
+    height: 95%;
+    overflow: auto;
+    width: 98%;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px grey;
+    margin-left: 15px;
+    margin-top: 15px;
+ }
+  .search-input {
+    width: 200px;
+    margin-right: 2rem;
+    margin-top:  1rem; ;
+    background-color: #fff;
+    float: right;
+    box-shadow: 0 2px 4px #cec5c5;
+    display: flex;
+  }
+  h1Tags{
+  background-color: #b5e2c4;
+  color: #ffffff;
+  margin-left: 1rem;
+  padding-left: 12px;
+  margin-right: 1rem;
+  margin-top: 1rem;
+ }
+  .add-button {
+    float: right;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 6px 8px;
+    margin: 2rem 5rem 0 0;
+    border-radius: 3px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+  }
+  .add-tour-popup {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #effafc;
+    width: 400px;
+    max-height: calc(100vh - 6rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem auto;
+    overflow-y: auto;
+  }
+  
+  .add-tour-popup input,
+  .add-tour-popup textarea {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    padding: 10px;
+  }
 .search-input {
   width: 200px;
   margin-bottom: 5px;

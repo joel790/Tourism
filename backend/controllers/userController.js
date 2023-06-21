@@ -58,6 +58,7 @@ exports.registerUser = asyncHandler(async (req, res) => {
 
 // Login User
 exports.loginUser = asyncHandler(async (req, res) => {
+  //take inputs from the user
   const { email, password } = req.body;
   // Validate user input
   if (!email || !password) {

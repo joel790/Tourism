@@ -11,6 +11,8 @@ const companyRoute = require("./routes/companyRoute");
 const tourRoute = require("./routes/tourRoute");
 const bookingRoute = require("./routes/bookingRoute");
 const packageRoute = require("./routes/packageRoute");
+const hotelRoute = require("./routes/hotelRoute");
+const roomRoute= require("./routes/roomRoute");
 // const session= require("express-session");
 const app = express();
 
@@ -35,14 +37,17 @@ app.use("/api/companies", companyRoute);
 app.use("/api/packages", packageRoute);
 app.use("/api/tours", tourRoute);
 app.use("/api/bookings", bookingRoute);
+app.use("/api/hotels", hotelRoute);
+app.use("/api/rooms", roomRoute);
 
 //routes
-app.get("/", (req, res) => {
-  res.send("home page");
-});
+app.get("/",(req,res)=>{
+  res.send("home page")
 
+});
 //error middleware
 app.use(errorHandler);
+
 
 // connect to mongodb
 

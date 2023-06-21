@@ -9,7 +9,7 @@ userSchema = mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["admin", "tourGuide", "user"],
+      enum: ["admin", "tourGuide", "user", "hotel"],
       default: "user",
     },
     email: {

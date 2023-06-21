@@ -59,5 +59,13 @@ const user = (req, res, next) => {
     throw new Error("Not authorized as a user");
   }
 };
+const hotel = (req, res, next) => {
+  if (req.user && req.user.role === "hotel") {
+    next();
+  } else {
+    res.status(401);
+    throw new Error("Not authorized as a hotel");
+  }
+};
 
-module.exports = { protect, admin, tourGuide, user };
+module.exports = { protect, admin, tourGuide, user,hotel };
