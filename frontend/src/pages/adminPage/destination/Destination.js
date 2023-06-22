@@ -9,6 +9,16 @@ import Update from "../../../components/AddButton/Update";
 import "./Destination.css";
 
 const Destination = () => {
+  const [showAdd, setShowAdd] = useState(false);
+  const [updateData, setUpdateData] = useState(false);
+  const [tourData, setTourData] = useState({
+    name: "",
+    category: "",
+    location: "",
+    description: "",
+    images: "",
+  });
+
   const toursColumns = [
     { name: "ID", selector: "id", sortable: true },
     { name: "Name", selector: "name", sortable: true },
