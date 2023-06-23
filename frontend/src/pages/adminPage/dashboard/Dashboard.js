@@ -6,9 +6,8 @@ const Dashboard = () => {
   return (
     <>
       <div className="MainDashboard">
-        <h1>hello</h1>
-        <SmallCard />
-        <BasicTable />
+        <h1>Admin Dashboard</h1>
+      
       </div>
     </>
   );
