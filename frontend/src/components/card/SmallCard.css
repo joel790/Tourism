@@ -1,9 +1,0 @@
- .Cards {
-     display: flex;
-     flex-direction: row;
-     gap: 1rem;
- }
-
- .parentContainer {
-     width: 100%;
- }
