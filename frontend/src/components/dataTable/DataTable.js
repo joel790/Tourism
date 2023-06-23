@@ -3,9 +3,11 @@ import axios from "axios";
 import DataTable from "react-data-table-component";
 import "./MyTable.css";
 import Loader from "../loader/Loader";
+
 const MyTable = ({ apiEndpoint, title, columns, dataKey }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
+
   useEffect(() => {
     setIsLoading(true);
     axios
@@ -51,8 +53,6 @@ const MyTable = ({ apiEndpoint, title, columns, dataKey }) => {
         <Loader />
       ) : (
         <>
-          <button className="add-button">Add +</button>
-          <h1Tags>Total:{data.length}</h1Tags>
           <input
             type="text"
             placeholder="Search by name"
@@ -63,6 +63,7 @@ const MyTable = ({ apiEndpoint, title, columns, dataKey }) => {
 
           {filteredData.length > 0 ? (
             <DataTable
+              className="data-table"
               title={title}
               columns={columns}
               data={filteredData}

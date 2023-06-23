@@ -27,28 +27,25 @@ const packageSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    description: 
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Tour",
-        required: true,
-        trim: true,
-      },
-    
-    location: 
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Tour",
-        required: true,
-      },
-    
-    category: 
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Tour",
-        required: true,
-      },
-    
+    description: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Tour",
+      required: true,
+      trim: true,
+    },
+
+    location: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Tour",
+      required: true,
+    },
+
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Tour",
+      required: true,
+    },
+
     ratingsAverage: {
       type: Number,
       default: 0,
@@ -60,7 +57,7 @@ const packageSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-   
+
     images: {
       type: Object,
       required: true,

@@ -4,7 +4,7 @@ const Tour = require("../models/tourModel");
 const User = require("../models/userModel");
 const TourGuide = require("../models/tourguideModel");
 
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 exports.createBooking = asyncHandler(async (req, res) => {
   const { tourGuideId, tourId, date, numberOfPeople, contactNumber } = req.body;
@@ -29,8 +29,8 @@ exports.createBooking = asyncHandler(async (req, res) => {
   await newBooking.save();
 
   // Populate the tourGuide and tour fields of the newBooking object
-  await newBooking.populate('tourGuide').execPopulate();
-  await newBooking.populate('tour').execPopulate();
+  await newBooking.populate("tourGuide").execPopulate();
+  await newBooking.populate("tour").execPopulate();
 
   res.status(201).json({
     data: {
@@ -38,7 +38,7 @@ exports.createBooking = asyncHandler(async (req, res) => {
       tourGuideName: newBooking.tourGuide.name,
       tourName: newBooking.tour.name,
     },
-    message: "Booking created successfully"
+    message: "Booking created successfully",
   });
 });
 

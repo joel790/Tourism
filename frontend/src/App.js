@@ -14,6 +14,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SearchedHotel from "./components/hotelList/SearchedHotel";
 axios.defaults.withCredentials = true;
+
 const App = () => {
   return (
     <BrowserRouter>
