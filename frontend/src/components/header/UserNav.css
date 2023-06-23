@@ -5,7 +5,8 @@
     height: 8%;
     display: flex;
     width: 100%;
-    
+    position:sticky;
+    top: 1px;    
 }
 .Logo{
   display:flex;

@@ -5,6 +5,7 @@ import { MdPlace } from "react-icons/md";
 import { BsCalendarDayFill } from "react-icons/bs";
 import { HiUserGroup } from "react-icons/hi";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
 const BottomHeader = () => {
@@ -16,27 +17,33 @@ const BottomHeader = () => {
       key: "selection",
     },
   ]);
+  const [destination, setDestination] = useState("");
   const [openOption, setOpenOption] = useState(false);
+
   const [options, setOptions] = useState({
     adult: 1,
     children: 0,
     room: 1,
   });
-  const handleoption = (name, operation) => {
+  const navigate=useNavigate();
+  const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
         ...prev,
-        [name]: operation === "i" ? options.name + 1 : options.name - 1,
+        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
       };
     });
   };
+  const handleSearch=()=>{
+    navigate("/user/hotels",{state:{destination,date,options}})
+  }
   return (
     <div className="Header">
       <h2>Explore Your Favorite Hotel and Reserve!</h2>
       <div className="headerSearch">
         <div className="headerSearchItem">
           <MdPlace className="headerIcon" />
-          <input type="text" placeholder="Destination" />
+          <input type="text" placeholder="Destination" onChange={(e)=>setDestination(e.target.value)} />
         </div>
         <div className="headerSearchItem">
           <BsCalendarDayFill className="headerIcon" />
@@ -71,14 +78,14 @@ const BottomHeader = () => {
                   <button
                   disabled={options.adult<=1}
                     className="optionBtn"
-                    onClick={() => handleoption("adult", "d")}
+                    onClick={() => handleOption("adult", "d")}
                   >
                     -
                   </button>
-                  <span className="optionNumber">{options.adult}</span>
+                  <span className="optionNumber">{options?.adult}</span>
                   <button
                     className="optionBtn"
-                    onClick={() => handleoption("adult", "i")}
+                    onClick={() => handleOption("adult", "i")}
                   >
                     +
                   </button>
@@ -90,14 +97,14 @@ const BottomHeader = () => {
                   <button
                   disabled={options.children<=0}
                     className="optionBtn"
-                    onClick={() => handleoption("children", "d")}
+                    onClick={() => handleOption("children", "d")}
                   >
                     -
                   </button>
-                  <span className="optionNumber">{options.children}</span>
+                  <span className="optionNumber">{options?.children}</span>
                   <button
                     className="optionBtn"
-                    onClick={() => handleoption("children", "i")}
+                    onClick={() => handleOption("children", "i")}
                   >
                     +
                   </button>
@@ -107,16 +114,16 @@ const BottomHeader = () => {
                 <span className="optionText">Room</span>
                 <div className="optionCounter">
                   <button
-                  disabled={options.room<=1}
+                   disabled={options.room<=1}
                     className="optionBtn"
-                    onClick={() => handleoption("room", "d")}
+                    onClick={() => handleOption("room", "d")}
                   >
                     -
                   </button>
-                  <span className="optionNumber">{options.room}</span>
+                  <span className="optionNumber">{options?.room}</span>
                   <button
                     className="optionBtn"
-                    onClick={() => handleoption("room", "i")}
+                    onClick={() => handleOption("room", "i")}
                   >
                     +
                   </button>
@@ -126,7 +133,7 @@ const BottomHeader = () => {
           )}
         </div>
         <div className="headerSearchItem">
-          <button className="headerbutton">Search</button>
+          <button className="headerbutton" onClick={handleSearch}>Search</button>
         </div>
       </div>
     </div>

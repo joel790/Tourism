@@ -14,7 +14,14 @@ exports.createHotel = asyncHandler(async (req, res) => {
 
 // Get all Hotels
 exports.getAllHotels = asyncHandler(async (req, res) => {
-  const hotels = await Hotel.find();
+  const {min, max, ...others} = req.query;
+  const hotels = await Hotel.find({
+    ...others,
+    cheapestPrice:{
+      $gt:min || 1,
+      $lt:max || 1000,
+    }
+  }).limit(req.query.limit);
   if (hotels) {
     res.status(200).json(hotels);
   } else {
@@ -34,6 +41,24 @@ exports.countByCity = asyncHandler(async (req, res) => {
     throw new Error("Hotel not found");
   }
 });
+exports.countByType = asyncHandler(async (req, res,) => {
+ 
+    const hotelCount = await Hotel.countDocuments({ type: "hotel" });
+    const apartmentCount = await Hotel.countDocuments({ type: "apartment" });
+    const resortCount = await Hotel.countDocuments({ type: "resort" });
+    const villaCount = await Hotel.countDocuments({ type: "villa" });
+
+    res.status(200).json([
+      { type: "hotel", count: hotelCount },
+      { type: "apartments", count: apartmentCount },
+      { type: "resorts", count: resortCount },
+      { type: "villas", count: villaCount },
+    ]);
+   res.status(404);
+   throw new Error("Hotel Not Found");
+});
+
+
 // get a single Hotel
 exports.getHotel = asyncHandler(async (req, res) => {
   const hotel = await Hotel.findById(req.params.id);

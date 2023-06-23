@@ -1,0 +1,29 @@
+.MainNav{
+    align-items: center;
+    justify-content: space-between;   
+    background-color: #1f864d;
+    height: 8%;
+    display: flex;
+    width: 100%;
+    position:sticky;
+    top: 0.01px; 
+}
+.logo{
+    cursor: pointer;
+    display:flex;
+    font-weight: bold;
+    height: 5rem;
+    gap: 3rem;
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3rem;
+}
+.NavLinks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30rem;
+    gap: 3rem;
+    transition: none;
+}

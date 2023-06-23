@@ -1,8 +1,11 @@
 .MainHotel{
-    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    &>h3{
+       padding-top: 30px;
+    }
 }
 .div1{
     display:flex;
