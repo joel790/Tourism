@@ -12,7 +12,7 @@ exports.createRoom = asyncHandler(async (req, res) => {
   await Hotel.findByIdAndUpdate(hotelId, {
     $push: { rooms: savedRoom._id },
   });
-  
+
   res.status(201).json(savedRoom);
 
   res.status(400).json({

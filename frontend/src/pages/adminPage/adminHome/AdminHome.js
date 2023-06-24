@@ -5,9 +5,12 @@ import Dashboard from "../dashboard/Dashboard";
 import Tourists from "../tourists/Tourists";
 import Companies from "../companies/Companies";
 import Destination from "../destination/Destination";
+import Bookings from "../bookings/Bookings";
+import Cars from "../cars/Cars";
 
 import TopNav from "../../../components/header/TopNav";
 import "./AdminHome.css";
+import Hotels from "../../tourGuidePage/hotels/Hotels";
 const AdminHome = () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState(
     AdminSidebarData[0].link
@@ -22,6 +25,24 @@ const AdminHome = () => {
         return (
           <>
             <Dashboard />
+          </>
+        );
+      case "/booking":
+        return (
+          <>
+            <Bookings />
+          </>
+        );
+      case "/cars":
+        return (
+          <>
+            <Cars />
+          </>
+        );
+      case "/hotels":
+        return (
+          <>
+            <Hotels />
           </>
         );
 

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { RiEditLine } from "react-icons/ri";
 import MyTable from "../../../components/dataTable/DataTable";
+import "./Destination.css";
 
 import AddButton from "../../../components/AddButton/AddButton";
 import axios from "axios";
 import Update from "../../../components/AddButton/Update";
-import "./Destination.css";
 
 const Destination = () => {
   const [showAdd, setShowAdd] = useState(false);

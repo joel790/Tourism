@@ -11,11 +11,15 @@
     padding: 6px 8px;
     margin: 2rem 5rem -10rem 0;
     border: 1px solid transparent;
-    border-radius: 3px;
+    border-radius: 13px;
+    width: 10rem;
     cursor: pointer;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    position: fixed;
+    top: 1rem;
+    left: 106rem;
     transition: all 300s ease;
 }
 

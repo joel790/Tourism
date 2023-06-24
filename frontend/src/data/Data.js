@@ -2,7 +2,13 @@ import { RxDashboard } from "react-icons/rx";
 import { TbBrandBooking } from "react-icons/tb";
 
 import { AiOutlineHome, AiOutlineUsergroupAdd } from "react-icons/ai";
-import { FaUserFriends, FaCarAlt, FaHouseUser } from "react-icons/fa";
+import {
+  FaUserFriends,
+  FaCarAlt,
+  FaHouseUser,
+  FaThList,
+  FaEject,
+} from "react-icons/fa";
 
 import { TfiPackage } from "react-icons/tfi";
 import { BiTaxi } from "react-icons/bi";
@@ -93,7 +99,21 @@ export const AdminSidebarData = [
     heading: "Dashboard",
     link: "/dashboard",
   },
-
+  {
+    icon: FaEject,
+    heading: "Hotels",
+    link: "/hotels",
+  },
+  {
+    icon: FaCarAlt,
+    heading: "Cars",
+    link: "/cars",
+  },
+  {
+    icon: FaThList,
+    heading: "Booking",
+    link: "/booking",
+  },
   {
     icon: AiOutlineUsergroupAdd,
     heading: "Tourists",
@@ -251,5 +271,48 @@ export const CardsData = [
         data: [10, 10, 50, 70, 80, 40],
       },
     ],
+  },
+];
+
+export const BookingData = [
+  {
+    tourguideName: "sdfa",
+    tourPlace: "lalibela",
+    date: "1234",
+    status: "available",
+    numberofpeople: 2,
+    contactNumber: 3425,
+  },
+  {
+    tourguideName: "sendafa",
+    tourPlace: "gonder",
+    date: "34",
+    status: "non-available",
+    numberofpeople: 4,
+    contactNumber: 7854,
+  },
+  {
+    tourguideName: "ale",
+    tourPlace: "bahrdar",
+    date: "4",
+    status: "non-available",
+    numberofpeople: 4,
+    contactNumber: 354,
+  },
+  {
+    tourguideName: "sendafa",
+    tourPlace: "addis",
+    date: "9",
+    status: "available",
+    numberofpeople: 4,
+    contactNumber: 6,
+  },
+  {
+    tourguideName: "nc",
+    tourPlace: "nazret",
+    date: "1",
+    status: "available",
+    numberofpeople: 4,
+    contactNumber: 7854,
   },
 ];
