@@ -1,17 +1,18 @@
 .MainHotel{
-    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-color: #ebfdfc;
+
+    &>h3{
+       padding-top: 30px;
+    }
+
 }
-.div1{
-    display:flex;
-    flex-direction: column;
-    background-color: #bd7a7a;
+.HotelContent{
+    width: 1024px;
+    align-items: center;
+     justify-content: center;
 }
-.div2{
-    height: 400px;
-    display:flex;
-    flex-direction: column;
-    background-color:red;
-}
+/* */

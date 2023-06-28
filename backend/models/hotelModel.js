@@ -38,10 +38,15 @@ const hotelSchema=new mongoose.Schema({
         type:Number,
         required:true,
     },
+    featured:{
+     type:Boolean,
+     default:false
+    },
     rating:{
         type:String,
         min:0,
         max:5,
+        default:0
     }
 },{
     timestamps:true,

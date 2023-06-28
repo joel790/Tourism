@@ -72,9 +72,13 @@ const Login = () => {
 
       <Card>
         <div className="form">
-          <h2>Welcome Back!</h2>
+          <div className="welcome">
+          <h1>Welcome Back!</h1>
+          
           <h4>Please Fill the following!</h4>
+          </div>
 
+          <br/>
           <form onSubmit={login}>
             <div className="input-wrapper">
               <span className="icon-prefix">&#x1F4E7;</span>
@@ -99,10 +103,7 @@ const Login = () => {
               />
             </div>
             <Link to="/forgot">forgot password?</Link>
-            <br />
-            <br />
-            <button className="--btn --btn-primary">Login</button>
-            <br />
+            <button className="button">Login</button>
             <span>
               <p>
                 Don't Have an account? &nbsp;{" "}

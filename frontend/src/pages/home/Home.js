@@ -6,28 +6,28 @@ import heroImg from "../../assets/tourism.jpg";
 const Home = () => {
   return (
     <div className="home">
-      <nav className="container --flex-between">
+      <nav className="navbar">
         <div className="logo">
           <SiEthiopianairlines size={40} />
+          <span>TMS</span>
         </div>
-        <ul className="home-links">
+        <ul className="homeLinks">
           <li>
             <Link to="/register">Register</Link>
           </li>
           <li>
-            <button className="--btn --btn-primary">
+            <button className="loginbtn">
               <Link to="/login">Login</Link>
             </button>
           </li>
         </ul>
       </nav>
       {/* hero section */}
-      <section className="container hero">
-        <div className="hero-text">
+      <section className="heroSection">
+        <div className="Section-text">
           <h1 className="h1tag"> Ethiopia Tourism Management Solution</h1>
           <div className="pbefore">
-            <div >
-              
+            <div >  
             </div>
             <p>
               A tourism management system is a software solution that helps
@@ -40,18 +40,19 @@ const Home = () => {
               places and heritages .
             </p>
           </div>
-          
-          <div className="hero-buttons">
-            <button className="--btn --btn-secondary">
+          <div className="bottomDesc">
+          <div className="secondary-button">
+            <button >
               <Link to="/login">See More</Link>
             </button>
           </div>
-          <div className="--flex-start">
+          <div className="nums">
             <NumberText num="600k+" text="Tourists/year" />
             <NumberText num="$400M+" text="Anual earning" />
           </div>
         </div>
-        <div className="hero-image">
+        </div>
+        <div className="image">
           <img src={heroImg} alt="Tourism" />
           
         </div>
@@ -61,11 +62,12 @@ const Home = () => {
   );
 };
 
+
 const NumberText = ({ num, text }) => {
   return (
-    <div className="--mr">
-      <h3 className="num">{num}</h3>
-      <p className="num">{text}</p>
+    <div >
+      <h3 >{num}</h3>
+      <p >{text}</p>
     </div>
   );
 };

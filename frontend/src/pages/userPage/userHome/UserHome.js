@@ -7,7 +7,6 @@ import Bookings from "../bookings/Bookings";
 import Cars from "../cars/Cars";
 import Packages from "../packages/Packages";
 import Hotels from "../hotels/Hotels";
-
 import Destination from "../destinations/Destination";
 import { UserNavData } from "../../../data/Data";
 
