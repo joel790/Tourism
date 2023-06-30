@@ -8,6 +8,9 @@ const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/userRoute");
 const tourGuideRoute = require("./routes/tourGuideRoute");
 const companyRoute = require("./routes/companyRoute");
+const feedbackRoutes = require("./routes/feedbackRoutes");
+const notificationRoutes = require("./routes/notificationRoutes");
+const profileRoutes = require("./routes/profileRoutes");
 
 const tourRoute = require("./routes/tourRoute");
 const bookingRoute = require("./routes/bookingRoute");
@@ -40,6 +43,9 @@ app.use("/api/tours", tourRoute);
 app.use("/api/bookings", bookingRoute);
 app.use("/api/hotels", hotelRoute);
 app.use("/api/rooms", roomRoute);
+app.use("/api/feedbacks", feedbackRoutes);
+app.use("/api/notifications", notificationRoutes);
+app.use("/api/profile", profileRoutes);
 
 //routes
 app.get("/", (req, res) => {

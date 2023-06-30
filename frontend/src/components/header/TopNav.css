@@ -2,7 +2,8 @@
     align-items: center;
     display: flex;
     background-color: #2d9c7b;
-    height: 7%;
+    
+    height: 15%;
     flex: 1;
     justify-content: flex-end;
     padding-right: 7rem;

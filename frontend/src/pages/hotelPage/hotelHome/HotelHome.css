@@ -1,5 +1,5 @@
-.HotelHome{
-    display:grid;
+.HotelHome {
+    display: grid;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -7,17 +7,19 @@
     background-color: #fff;
     border-radius: 1rem;
 }
+
 .content {
-  position: relative;
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
     background-color: #ffffff;
-   
+
 }
-.container{
+
+.container {
     height: 95%;
     width: 98%;
-    
+
 }

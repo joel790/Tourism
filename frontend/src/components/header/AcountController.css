@@ -1,0 +1,24 @@
+.forminputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20rem;
+    margin-top: 5rem;
+    width: 50%;
+    height: 50%;
+    background-color: antiquewhite;
+}
+.form-el input{
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+.form-el button{
+    margin-top: 2rem;
+    margin-left: 13rem;
+    width: 12rem;
+    height: 5rem;
+    text-align: center;
+}

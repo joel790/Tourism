@@ -1,5 +1,6 @@
 import { RxDashboard } from "react-icons/rx";
 import { TbBrandBooking } from "react-icons/tb";
+import axios from "axios";
 
 import { AiOutlineHome, AiOutlineUsergroupAdd } from "react-icons/ai";
 import {
@@ -230,7 +231,7 @@ export const CardsData = [
     title: "tourists",
     color: {
       backGround:
-        "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
+        "linear-gradient(rgb(248, 212, 154) -146.42%, ghostwhite -46.42%)",
       boxShadow: "0px 10px 20px 0px #F9D59B",
     },
     barvalue: 70,
@@ -245,7 +246,7 @@ export const CardsData = [
   {
     title: "cars",
     color: {
-      backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+      backGround: "linear-gradient( ghostwhite 0%,ghostwhite 100%)",
       boxShadow: "0px 10px 20px 0px #e0c6f5",
     },
     barvalue: 40,
@@ -260,7 +261,7 @@ export const CardsData = [
   {
     title: "hotels",
     color: {
-      backGround: "linear-gradient(180deg, #FF919D 0%, #FC929D 100%)",
+      backGround: "linear-gradient( ghostwhite 0%, ghostwhite 100%)",
       boxShadow: "0px 10px 20px 0px #FDC0C7",
     },
     barvalue: 50,

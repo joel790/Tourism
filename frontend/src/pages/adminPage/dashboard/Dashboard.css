@@ -1,8 +1,22 @@
 .MainDashboard {
+    width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    height: 100%;
 
     margin-top: 1rem;
     margin-left: 1rem;
 }
+ 
+.card-table{
+    margin-top: 4rem;
+}
+/* .gebb{
+    display: flex;
+    flex-direction: row;
+
+} */
+/* .account{
+    margin-left: 30rem;
+} */

@@ -5,17 +5,23 @@ import axios from "axios";
 const Update = ({ apiEndpoint, dataToUpdate, onSuccess }) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const handleUpdate = async () => {
+
+  const handleUpdate = () => {
     setIsLoading(true);
-    try {
-      const response = await axios.put(apiEndpoint, dataToUpdate);
-      onSuccess(response.data);
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-    setIsLoading(false);
+
+    axios
+      .patch(`${apiEndpoint}/${dataToUpdate.id}`, dataToUpdate)
+      .then((response) => {
+        onSuccess(response.data);
+        navigate(-1);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error updating data:", error);
+        setIsLoading(false);
+      });
   };
+
   if (isLoading) {
     return <p>Updating...</p>;
   }

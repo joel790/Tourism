@@ -29,11 +29,13 @@ const Caar = ({ title, color, barvalue, series }) => {
         onClick={setExpanded}
       >
         <div className="radialBar">
-          {barvalue} {title}
-          <span style={{ color: "black" }}>{title}</span>
+          <p style={{ color: "black", fontSize: "1.5rem" }}>
+            {barvalue} {title}
+          </p>
+          <span style={{ color: "black", fontSize: "1.5rem" }}>{title}</span>
         </div>
         <div className="detail">
-          <span>Last 24 hours</span>
+          <span style={{ color: "black" }}>Last 24 hours</span>
         </div>
       </div>
     );

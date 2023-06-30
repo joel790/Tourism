@@ -196,8 +196,9 @@ const Destination = () => {
             value={tourData.description}
             onChange={handleInputChange}
           ></textarea>
+
           <Update
-            apiEndpoint={`http://localhost:5000/api/tours${tourData.id}`}
+            apiEndpoint={"http://localhost:5000/api/tours"}
             dataToUpdate={tourData}
             onSuccess={handleAddSuccess}
           />

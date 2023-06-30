@@ -2,3 +2,79 @@
     height: 95%;
     width: 98%;
 }
+.add-user-button {
+    float: right;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 6px 8px;
+    margin: 2rem 5rem -10rem 0;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300s ease;
+}
+
+.add-tour-popup input,
+.add-tour-popup textarea {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    padding: 10px;
+
+}
+
+.add-tour-popup button {
+    padding: 3rem;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-tour-popup button:hover {
+    background-color: #45a049;
+}
+
+.update-user-button {
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 6px 8px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300s ease;
+    margin-left: 80rem;
+    margin-top: 2rem;
+}
+.add-tour-popup textarea {
+    position: relative;
+}
+.add-tour-popup {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #effafc;
+    width: 400px;
+    max-height: calc(100vh - 6rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem auto;
+    overflow-y: auto;
+}
+
+.selection {
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 10px #cec5c5;
+    margin-bottom: 1rem;
+    display: flex;
+}
