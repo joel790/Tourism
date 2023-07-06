@@ -1,6 +1,17 @@
+import React, { useState } from "react";
 import "./HotelSearchedResult.css";
+import BookingDetail from "./BookingDetail"; // Assuming the BookingDetail component is imported from a file
 
 const HotelSearchedResult = ({ item }) => {
+  const [selectedRoom, setSelectedRoom] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleBookNow = () => {
+    // Open the popup modal and pass the item as a prop
+    setSelectedRoom(null); // Reset selected room
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="searchContainer">
       <div className="searchItem">
@@ -12,30 +23,28 @@ const HotelSearchedResult = ({ item }) => {
         <div className="siDesc">
           <h1 className="siTitle">{item.name}</h1>
           <span className="siDistance">{item.distance}</span>
-          <span className="siTaxiOp">Free airport taxi</span>
           <span className="siSubtitle">
             Comfortable Room with air conditioning
           </span>
           <span className="siFeatures">{item.description}</span>
-          <span className="siCancelOp">Free cancellation </span>
-          <span className="siCancelOpSubtitle">
-            You can cancel later, so lock in this great price today!
-          </span>
         </div>
         <div className="siDetails">
           {item.rating && (
             <div className="siRating">
-              <span>Excellent</span>
               <button>{item.rating}</button>
             </div>
           )}
           <div className="siDetailTexts">
             <span className="siPrice">${item.cheapestPrice}</span>
-            <span className="siTaxOp">Includes taxes and fees</span>
-            <button className="siCheckButton">See availability</button>
+            <button className="siCheckButton" onClick={handleBookNow}>
+              Book Now
+            </button>
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <BookingDetail item={item} onClose={() => setIsModalOpen(false)} />
+      )}
     </div>
   );
 };

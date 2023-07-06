@@ -1,0 +1,87 @@
+.bookingDetailContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 500px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+}
+.carouselContainer {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.carousel .thumbs-wrapper {
+  display: flex; /* Hide the thumbnail wrapper */
+}
+
+.carousel .thumb {
+  /* Style the individual thumbnails */
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.carousel .thumb img {
+  /* Style the thumbnail images */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel .slide-number {
+  background-color: black; /* Set the number indicator color */
+}
+
+.carousel .control-arrow {
+  background-color: black; /* Set the arrow background color */
+  color: white; /* Set the arrow color */
+}
+.sImg {
+  width: 100%;
+  height: 400px;
+}
+
+.bookingDetailContent {
+  background-color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+  width:58vw;
+  max-height: 97vh; /* Adjust the maximum height as needed */
+}
+.bname{
+  font-size:25px;
+  color:green;
+  padding-top:30px;
+}
+.bdesc{
+  padding-top:20px;
+  padding-left:30px;
+
+  font-weight:500;
+  font-size:20px;
+}
+.bdist{
+  font-style:bold;
+  font-size:17px;
+}
+
+.cancelButton {
+  position: absolute;
+  top: 30px;
+  right: 310px;
+  color: #ff0000;
+  cursor: pointer;
+ width: 40px;
+ height: 40px;
+ border-radius:50%;
+  background-color: #e5fde5;
+
+}
