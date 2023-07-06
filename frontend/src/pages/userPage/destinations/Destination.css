@@ -1,116 +1,107 @@
-.TopNavigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(69, 52, 226);
-    width: 100%;
-}
-
-.Logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: blue;
-    font-family: Arial, sans-serif;
-}
-
-.SearchContainer {
-    display: flex;
-    margin-top: 10px;
-    align-items: center;
-    position: relative;
-}
-
-.SearchIcon {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    color: brown;
-}
-
-.FilterContainer {
-    margin-top: 10px;
-}
-
-#categoryFilter {
-    width: 180px;
-    height: 30px;
-    font-size: 16px;
-}
+/* Destination.css */
 
 .MainDestination {
-    /* background-image: url("../../../assets/blue.jpg"); */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 5px;
+    /* Add styling to center the content and add some spacing */
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.MainContent {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 80px;
-    justify-items: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-}
-
-.MainContent div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background-color: darkblue;
-    border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(126, 24, 24, 0.1);
+    min-width: 1024px;
+  }
+  
+  .Logo {
+    color: #0afa5a;
+  }
+  
+  .TopNavigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-}
-
-.DestinationCard {
-    overflow: hidden;
-    transition: width 0.3s ease;
-}
-
-.DestinationCard .label {
-    color: #ff0000;
-}
-
-.DestinationCard .label span {
-    color: white;
-}
-
-.ExpandedDescription {
-    display: block;
-    max-height: none;
-    overflow: visible;
-    transition: none;
-}
-
-.expanded {
-    width: 100%;
-    display: block;
-    max-height: 0;
-    overflow: hidden;
-
-}
-
-.ExpandButton {
-    background-color: #ff0000;
-    color: white;
+    max-width: 1000px;
+    margin-bottom: 20px;
+    border: 1px solid gainsboro;
+    background-color: #fff;
+  }
+  
+  .SearchContainer {
+    /* Add styling for the search input */
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  .SearchContainer input {
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    align-self: flex-end;
-    margin-top: auto;
-}
-
-.ExpandButton:focus {
     outline: none;
-}
+    width: 200px;
+    padding: 5px;
+    margin-right: 5px;
+    background-color: #fff;
+  }
+  
+  .FilterContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .FilterContainer select {
+    border: none;
+    margin-right: 2rem;
+    background-color: #effaf8;
+    outline: none;
+    padding: 5px;
+    border-radius: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .MainContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+  }
+  
+  .DestinationCard {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+  }
+  
+  .DestinationCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .Spans {
+    margin-top: 10px;
+  }
+  
+  .dname {
+    font-size: 25px;
+    font-weight: 900;
+    color: green;
+  }
+  
+  .label {
+    margin: 5px 0;
+    font-weight: bold;
+  }
+  
+  .label span {
+    font-weight: normal;
+  }
+
+
+  
+  

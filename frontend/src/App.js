@@ -7,7 +7,6 @@ import Reset from "./pages/auth/Reset";
 import Forgot from "./pages/auth/Forgot";
 import AdminHome from "./pages/adminPage/adminHome/AdminHome";
 import HotelHome from "./pages/hotelPage/hotelHome/HotelHome";
-
 import TourGuideHome from "./pages/tourGuidePage/tourguideHome/TourGuideHome";
 import UserHome from "./pages/userPage/userHome/UserHome";
 import axios from "axios";

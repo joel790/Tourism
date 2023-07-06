@@ -8,8 +8,6 @@ const Destination = () => {
   const [destinations, setDestinations] = useState([]);
   const [filteredDestinations, setFilteredDestinations] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [expandedDestinations, setExpandedDestinations] = useState([]);
-
   useEffect(() => {
     fetchDestinations();
   }, []);
@@ -56,24 +54,14 @@ const Destination = () => {
     return filtered;
   };
 
-  const toggleDescription = (destinationId) => {
-    setExpandedDestinations((prevExpanded) => {
-      if (prevExpanded.includes(destinationId)) {
-        return prevExpanded.filter((id) => id !== destinationId);
-      } else {
-        return [...prevExpanded, destinationId];
-      }
-    });
+  const openDestinationModal = (destination) => {
+   
   };
 
   return (
     <div className="MainDestination">
       <header className="TopNavigation">
         <div className="Logo">Explore</div>
-        {/* <nav className="OtherNavigationElements"> */}
-        {/* Other navigation elements */}
-        {/* ... */}
-        {/* </nav> */}
 
         <div className="SearchContainer">
           <input
@@ -86,9 +74,7 @@ const Destination = () => {
         </div>
 
         <div className="FilterContainer">
-          <label htmlFor="categoryFilter">
-            <h3>Filter by Category:</h3>
-          </label>
+          <label htmlFor="categoryFilter"></label>
           <select
             id="categoryFilter"
             value={selectedCategory}
@@ -105,40 +91,27 @@ const Destination = () => {
 
       <div className="MainContent">
         {filteredDestinations.length === 0 && searchTerm !== "" && (
-          <p>No results found! search another Destinations</p>
+          <p>No results found! Search for other destinations</p>
         )}
+
         {filteredDestinations.map((destination) => (
-          <div key={destination._id} className="DestinationCard">
-            <h3>{destination.name}</h3>
-            <p className="label">
-              Category: <span>{destination.category}</span>
-            </p>
-            <p className="label">
-              Location: <span>{destination.location}</span>
-            </p>
-            <div className="DescriptionContainer">
+          <div
+            key={destination._id}
+            className="DestinationCard"
+            onClick={() => openDestinationModal(destination)}
+          >
+            <img
+              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/120936809.jpg?k=ede4437632dc04a911779bab335647366cc0179bcffbd83c3cea202e6681eb44&o=&hp=1"
+              alt="destination"
+            />
+            <div className="Spans">
+              <h3 className="dname">{destination.name}</h3>
               <p className="label">
-                Description:{" "}
-                <span
-                  className={
-                    expandedDestinations.includes(destination._id)
-                      ? "expanded"
-                      : ""
-                  }
-                >
-                  {destination.description}
-                </span>
+                Category: <span>{destination.category}</span>
               </p>
-              {destination.description.length > 15 && (
-                <button
-                  className="ExpandButton"
-                  onClick={() => toggleDescription(destination._id)}
-                >
-                  {expandedDestinations.includes(destination._id)
-                    ? "See Details"
-                    : "Collapse"}
-                </button>
-              )}
+              <p className="label">
+                Location: <span>{destination.location}</span>
+              </p>
             </div>
           </div>
         ))}

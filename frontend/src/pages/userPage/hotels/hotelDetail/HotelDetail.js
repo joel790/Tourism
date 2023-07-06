@@ -1,4 +1,4 @@
-import "/HotelDetail.css";
+// import "/HotelDetail.css";
 
 const HotelDetail = () => {
   const photos = [

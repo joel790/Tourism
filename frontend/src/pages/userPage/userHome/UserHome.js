@@ -63,8 +63,10 @@ const UserHome = () => {
   return (
     <div className="UserHome">
       <UserNav onLinkClick={handleClick} />
-      <div className="UserContent">{renderContents()}</div>
-      <Footer />
+      <div className="UserContent">
+        {renderContents()}
+        </div>
+      <Footer/>
     </div>
   );
 };

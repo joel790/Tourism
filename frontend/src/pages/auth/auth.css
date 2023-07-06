@@ -4,42 +4,44 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-
-  background-image:url("../../assets/addis.avif");
+  background-image: url("../../assets/addis.avif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
 }
 
 .input-wrapper {
-  
   position: relative;
   margin-bottom: 20px;
-
 }
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  border-radius: 10px;
   width: 35rem;
+  border-radius: 10px;
   padding: 1.5rem;
   animation: slide-up 0.5s ease;
   background-color: #fff;
 }
-h2{
-  color: #041dff;
+
+.welcome{
+  color:blue;
+  display:flex;
+  gap:2rem;
+  flex-direction:column;
+  &>h1{
+    font-size:25px;
+  }
 }
-h3{
-  color: #041dff;
-}
+
 input {
   padding: 10px 30px;
   border-radius: 5px;
-  background-color: #fff3f3;
+  background-color: #fffdfd;
   font-size: 16px;
+  outline: none;
   width: 100%;
   border: 1px solid #ccc;
 }
@@ -51,31 +53,19 @@ input {
   color: #041dff;
 }
 
-button {
-  padding: 30px 20px;
+.button {
+  padding: 10px 20px;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
   background-color: #007bff;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
-
 }
+
 .link-yellow {
-  
   color: #ff3d02;
   font-weight: bold;
 }
 
-.--btn-primary {
-  margin-top:30px;
-  width:100px;
-  margin: 0 auto;
-  display: block;
-  background-color: #007bff;
 
-}
-
-.--btn-primary:hover {
-  background-color: #0069d9;
-}

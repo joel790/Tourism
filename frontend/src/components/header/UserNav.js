@@ -15,7 +15,7 @@ const UserNav = (props) => {
     <div className="UserNav">
       {/* logo */}
       <div className="Logo">
-        <SiEthiopianairlines size={40} color="yellow" />
+        <SiEthiopianairlines size={40}  />
         <span>TMS</span>
       </div>
       {/* menu */}

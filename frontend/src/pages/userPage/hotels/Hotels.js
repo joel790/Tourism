@@ -28,21 +28,22 @@ const Hotels = () => {
 
   return (
     <div className="MainHotel">
-      <div className="HotelContent">
-        {showSearchedHotel ? (
-          <HotelSearchedList searchParams={searchParams} />
-        ) : (
-          <>
-            <BottomHeader
-              onSearchClick={handleSearchClick}
-              setShowSearchedHotel={setShowSearchedHotel}
-              setSearchParams={setSearchParams}
-            />
-            <CountByCity />
-          </>
-        )}
-      </div>
+ 
+    <div className="HotelContent">
+      {showSearchedHotel ? (
+        <HotelSearchedList searchParams={searchParams} />
+      ) : (
+        <>
+        <BottomHeader
+        onSearchClick={handleSearchClick}
+        setShowSearchedHotel={setShowSearchedHotel}
+        setSearchParams={setSearchParams}
+      />
+        <CountByCity />
+        </>
+      )}
     </div>
+  </div>
   );
 };
 

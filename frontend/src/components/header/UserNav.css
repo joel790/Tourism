@@ -1,73 +1,77 @@
 .UserNav{
-    align-items: center;
-    justify-content: space-between;   
-    background-color: #1f864de7;
-    height: 8%;
-    display: flex;
-    width: 100%;
-    
+  align-items: center;
+  justify-content: space-between;   
+  background-color: #2d9c7b;
+  height: 8%;
+  display: flex;
+  width: 100vw;
+  top: 0.1px;
+  position: sticky;
+  z-index:3;
 }
 .Logo{
-  display:flex;
-  font-weight: bold;
-  height: 5rem;
-  gap: 3rem;
-  font-size: 22px;
-  align-items: center;
-  justify-content: center;
-  margin-left: 3rem;
-  
+display:flex;
+font-weight: bold;
+height: 5rem;
+gap: 3rem;
+font-size: 22px;
+align-items: center;
+justify-content: center;
+margin-left: 3rem;
+color:yellow;
+
 }
 .NavMenu{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 30rem;
-  gap: 3rem;
-  transition: none;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 30rem;
+gap: 3rem;
+transition: none;
 }
 .NavMenuItem{
-  color: white;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content:space-between;
+color: white;
+font-size: 18px;
+display: flex;
+align-items: center;
+justify-content:space-between;
 
 }
 
 
 .NavMenuItem:hover{
-  cursor: pointer;
+cursor: pointer;
 }
 
 .actives {
-  margin-right: calc(3rem-18px);
-  font-size: 18px;
-  color: yellow;
+margin-right: calc(3rem-18px);
+font-size: 18px;
+color: rgb(253, 255, 114);
 }
 .actives::before{
-  content:'';
-  width:4px;
-  height:20px;
-  background-color: #ff1414;
-  margin-right: 5px;
-  border-radius: 3px;
-  
+content:'';
+width:4px;
+height:20px;
+background-color: #ff1414;
+margin-right: 5px;
+border-radius: 3px;
+
 }
 .Icons{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-right: 3rem;
-  color: #ccc2c2;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+margin-right: 3rem;
+color: #ccc2c2;
 }
 .Profile{
-  align-items:center;
-  justify-content:center;
-  display: flex;
-  margin-left: 2rem;
-  &>span{
-    font-size:18px;
-  }
+align-items:center;
+justify-content:center;
+display: flex;
+margin-left: 2rem;
+&>span{
+  font-size:18px;
+  color: #1d221d;
+}
 }

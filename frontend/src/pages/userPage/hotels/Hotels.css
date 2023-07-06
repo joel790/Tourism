@@ -1,18 +1,18 @@
-.MainHotel {
+.MainHotel{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #ebfdfc;
 
-    &>h3 {
-        padding-top: 30px;
+    &>h3{
+       padding-top: 30px;
     }
 
 }
-
-.HotelContent {
+.HotelContent{
     width: 1024px;
     align-items: center;
-    justify-content: center;
+     justify-content: center;
 }
+/* */
