@@ -1,11 +1,28 @@
-import "./CountByCity.css";
+import React, { useState } from "react";
 import HotelService from "../../../../services/HotelService";
 import HotelType from "../types/HotelType";
 import PopularHotel from "../popular/PopularHotel";
 import Loader from "../../../../components/loader/Loader";
+import HotelCityDetail from "./HotelCityDetail";
+import "./CountByCity.css";
+
 const CountByCity = () => {
   const URL = "http://localhost:5000/api/hotels/countbycity";
   const { data, loading, error } = HotelService(URL);
+
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (city) => {
+    setSelectedCity(city);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedCity(null);
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="MainFeature">
       {loading ? (
@@ -15,7 +32,11 @@ const CountByCity = () => {
           <h1>Cities</h1>
           <div className="featured">
             {data.map((city) => (
-              <div className="featuredItem" key={city.city}>
+              <div
+                className="featuredItem"
+                key={city.city}
+                onClick={() => openModal(city.city)}
+              >
                 <img
                   src="https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-villas_300/dd0d7f8202676306a661aa4f0cf1ffab31286211.jpg"
                   alt=""
@@ -34,6 +55,11 @@ const CountByCity = () => {
             <h1>Popular Hotels</h1>
             <PopularHotel />
           </div>
+          <HotelCityDetail
+            isOpen={isModalOpen}
+            onRequestClose={closeModal}
+            city={selectedCity}
+          />
         </>
       )}
     </div>

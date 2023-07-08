@@ -21,6 +21,10 @@ const tourSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    features: [{
+      type: String,
+      required: true,
+    }],
     location: {
       type: String,
       required: true,

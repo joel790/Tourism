@@ -79,7 +79,11 @@ const BookingDetail = ({ item, onClose }) => {
             <p>Features: {selectedRoom.features}</p>
           </div>
         )}
-    <FaTimes size={30} className=" cancelButton" onClick={handleButtonClick}/>
+        <FaTimes
+          size={20}
+          className=" cancelButton"
+          onClick={handleButtonClick}
+        />
       </div>
     </div>
   );
