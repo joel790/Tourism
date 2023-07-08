@@ -6,7 +6,7 @@
   transform: translate(-50%, -50%);
   background-color: #ece9e9;
   padding: 20px;
-  min-width: 60%;
+  min-width: 80%;
   max-height: 600px;
   overflow-y: auto;
   border-radius: 8px;
@@ -53,7 +53,7 @@
 }
 
 .hotelCardImg {
-  width: 200px;
+  width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 10px;

@@ -136,13 +136,15 @@ const UserDashboard = () => {
       </div>
       <h1>Booking History</h1>
       <div className="dataTable">
+        <div className="tableWrapper">
         <DataTable
           columns={columns}
           data={bookedHistory}
           pagination
           highlightOnHover
-          paginationRowsPerPageOptions={[7, 10, 15, 20]}
           paginationPerPage={7}
+          paginationRowsPerPageOptions={[7, 10, 15, 20]}
+         
           paginationComponentOptions={{
             rowsPerPageText: "Rows:",
             rangeSeparatorText: "of",
@@ -151,6 +153,11 @@ const UserDashboard = () => {
             selectAllRowsItemText: "All",
           }}
         />
+        </div>
+        <div className="reveiws">
+         
+        </div>
+        
       </div>
     </div>
   );

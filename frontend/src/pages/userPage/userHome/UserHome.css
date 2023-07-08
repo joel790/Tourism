@@ -20,7 +20,8 @@
     width: 100%;
     height: 100%;
     display: flex;
-    background-color: #ebfdfc;
+    background-color: #effaf9;
+
     flex-direction: column;
     align-items: center;
     gap: 30px;

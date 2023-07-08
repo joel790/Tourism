@@ -7,7 +7,7 @@ Modal.setAppElement("#root");
 
 const HotelCityDetail = ({ isOpen, onRequestClose, city }) => {
   const url = `http://localhost:5000/api/hotels?city=${city}`;
-  const { data, loading, error } = HotelService(url);
+  const { data, loading, } = HotelService(url);
 const handleCloseModal = () => {
   onRequestClose();
 };
@@ -19,7 +19,7 @@ const handleCloseModal = () => {
       overlayClassName="hotelCityDetailOverlay"
     >
       <div className="modalHeader">
-        <h1>{city}:  {data.length} Hotels</h1>
+        <h1>{city}: {data.length} Hotels</h1>
         
         <button className="closeIcon" onClick={handleCloseModal}>
           &#10005;

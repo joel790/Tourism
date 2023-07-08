@@ -13,8 +13,8 @@ const CountByCity = () => {
   const [selectedCity, setSelectedCity] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = (city) => {
-    setSelectedCity(city);
+  const openModal = (town) => {
+    setSelectedCity(town);
     setIsModalOpen(true);
   };
 
@@ -31,11 +31,11 @@ const CountByCity = () => {
         <>
           <h1>Cities</h1>
           <div className="featured">
-            {data.map((city) => (
+            {data.map((town) => (
               <div
                 className="featuredItem"
-                key={city.city}
-                onClick={() => openModal(city.city)}
+                key={town.city}
+                onClick={() => openModal(town.city)}
               >
                 <img
                   src="https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-villas_300/dd0d7f8202676306a661aa4f0cf1ffab31286211.jpg"
@@ -43,8 +43,8 @@ const CountByCity = () => {
                   className="featuredImg"
                 />
                 <div className="featuredTitles">
-                  <h1>{city.city}</h1>
-                  <h3>{city.count} properties</h3>
+                  <h1>{town.city}</h1>
+                  <h3>{town.count} Hotels</h3>
                 </div>
               </div>
             ))}
