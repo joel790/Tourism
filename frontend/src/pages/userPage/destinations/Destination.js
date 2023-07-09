@@ -62,6 +62,20 @@ const Destination = () => {
     setSelectedDestination(destination);
     setIsModalOpen(true);
   };
+  const images=[
+    "https://media.cnn.com/api/v1/images/stellar/prod/150323113025-ethiopia-15.jpg?q=w_1600,h_900,x_0,y_0,c_fill/h_618",
+    "https://media.istockphoto.com/id/1190896518/photo/rare-wildlife-shot-of-a-walia-ibex-simien-mountains-ethiopia.jpg?s=612x612&w=0&k=20&c=XZAl8AvVNnxTmE2w1_pNu0Z2FK0mMJ1Za1q5jDKR5r8=",
+    "https://upload.wikimedia.org/wikipedia/commons/a/af/Harold_Wilson%27s_grave._St._Mary%27s%2C_Old_Town_-_geograph.org.uk_-_934336.jpg?20110222063930",
+    "https://img.sewasew.com/definitions/311cd0b506c94b5fb1d49b8716253393_268_188",
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/60/4a/6a/caption.jpg?w=400&h=300&s=1",
+    "https://addisstandard.com/wp-content/uploads/2021/11/Finfinee-oromia-1-768x1024.jpg",
+
+    "https://2.bp.blogspot.com/-Z1Bn_eB3FyQ/WEA2nVbG8uI/AAAAAAAADJE/GvRqKLBn_DofuDxsHu94W_qGE2Z40qVtACLcB/s1600/13906779_868381063267946_431314784435473874_n.jpg",
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a9/fd/63/getlstd-property-photo.jpg?w=400&h=300&s=1",
+    "https://jelford.files.wordpress.com/2011/03/540133_371149122999076_137754156_n.jpg",
+
+    "https://pbs.twimg.com/media/Du38-wcW4AAN-Ea.jpg:large",
+  ]
 
   return (
     <div className="MainDestination">
@@ -100,17 +114,17 @@ const Destination = () => {
             <p>No results found! Search for other destinations</p>
           )}
 
-          { filteredDestinations.map((destination) => (
+          { filteredDestinations.map((destination,index) => (
             <div
               key={destination._id}
               className="DestinationCard"
               onClick={() => openDestinationModal(destination)}
             >
-              <img
-                src= "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/60/4a/6a/caption.jpg?w=400&h=300&s=1" 
-
-                alt="destination"
-              />
+             <img
+                  src={images[index % images.length]} // Assign image by index
+                  alt="Destination"
+                  className="destImg"
+                />
               <div className="Spans">
                 <h3 className="dname">{destination.name}</h3>
                 <p className="label">

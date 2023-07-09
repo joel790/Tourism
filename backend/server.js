@@ -17,11 +17,16 @@ const bookingRoute = require("./routes/bookingRoute");
 const packageRoute = require("./routes/packageRoute");
 const hotelRoute = require("./routes/hotelRoute");
 const roomRoute = require("./routes/roomRoute");
+const cloudinary = require('cloudinary')
 // const session= require("express-session");
 const app = express();
 
 const PORT = process.env.PORT || 5000;
-
+cloudinary.config({
+  cloud_name: 'your_cloud_name',
+  api_key: 'your_api_key',
+  api_secret: 'your_api_secret'
+});
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
