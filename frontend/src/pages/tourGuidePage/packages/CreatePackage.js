@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import "./createPackage.css"; // Import the CSS file for styling
 import { toast } from "react-toastify";
 
@@ -43,7 +44,7 @@ const CreatePackage = () => {
       const guide = guides.find((guide) => guide._id === guideId);
       return guide ? guide.name : "";
     });
-  
+
     const packageData = {
       name,
       guides: selectedGuideNames,
@@ -55,12 +56,11 @@ const CreatePackage = () => {
       category,
       priceDiscount,
     };
-  
 
     axios
       .post("http://localhost:5000/api/packages", packageData)
       .then(() => {
-       toast.success("Package Created Successfully...");
+        toast.success("Package Created Successfully...");
         setName("");
         setSelectedGuides([]);
         setPrice(0);
@@ -71,7 +71,7 @@ const CreatePackage = () => {
         setCategory("");
         setPriceDiscount(0);
       })
-      
+
       .catch((error) => {
         console.error("Error creating package:", error);
       });
@@ -80,9 +80,9 @@ const CreatePackage = () => {
   return (
     <div className="create-package-container">
       <div className="cptop">
-      <span className="pspan">Create Package</span>
+        <span className="pspan">Create Package</span>
       </div>
-      
+
       <form onSubmit={handleSubmit}>
         <label className="form-label">Name:</label>
         <input
@@ -135,9 +135,8 @@ const CreatePackage = () => {
         />
 
         <label className="form-label">Description:</label>
-        <input
-          className="form-input"
-          type="text"
+        <ReactQuill
+          className="quill-editor"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />

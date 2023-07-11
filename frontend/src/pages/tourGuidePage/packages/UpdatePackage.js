@@ -3,7 +3,8 @@ import axios from "axios";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
 import "./updatePackage.css";
-
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 const UpdatePackage = ({ isOpen, onRequestClose, packageId, initialData}) => {
     const [name, setName] = useState(initialData.name);
     const [guides, setGuides] = useState(initialData.guides);
@@ -16,6 +17,10 @@ const UpdatePackage = ({ isOpen, onRequestClose, packageId, initialData}) => {
     const [category, setCategory] = useState(initialData.category);
     const [priceDiscount, setPriceDiscount] = useState(initialData.priceDiscount);
 
+
+    const handleDescriptionChange = (value) => {
+        setDescription(value);
+      };
   useEffect(() => {
     // Fetch guides from the backend API
     axios
@@ -37,9 +42,13 @@ const UpdatePackage = ({ isOpen, onRequestClose, packageId, initialData}) => {
   };
 
   const handleUpdate = () => {
+    const selectedGuideNames = selectedGuides.map((guideId) => {
+        const guide = guides.find((guide) => guide._id === guideId);
+        return guide ? guide.name : "";
+      });
     const packageData = {
       name,
-      guides: selectedGuides,
+      guides: selectedGuideNames,
       price,
       duration,
       createdBy,
@@ -119,14 +128,13 @@ const UpdatePackage = ({ isOpen, onRequestClose, packageId, initialData}) => {
           onChange={(event) => setCreatedBy(event.target.value)}
         />
 
-        <label className="form-label">Description:</label>
-        <input
-          className="form-input"
+     <label className="form-label">Description:</label>
+        <ReactQuill
+          className="quill-editor"
           type="text"
           value={description}
-          onChange={(event) => setDescription(event.target.value)}
+          onChange={handleDescriptionChange}
         />
-
         <label className="form-label">Location:</label>
         <input
           className="form-input"

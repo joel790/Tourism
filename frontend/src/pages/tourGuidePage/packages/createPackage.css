@@ -8,7 +8,12 @@
     border-radius: 5px;
     background-color: #ffffff;
   }
-
+  .quill-editor {
+    height: 250px;
+    margin-bottom:5rem;
+    border-radius: 4px;
+  }
+  
   .pspan {
     text-align: center;
     font-size: 20px;

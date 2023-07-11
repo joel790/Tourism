@@ -7,13 +7,16 @@
   background-color: #ffffff;
   border-radius: 4px;
   padding: 20px;
-  padding-top: 50px;
   max-height: 630px;
   max-width: 800px;
   width: 800px;
   margin: 0 auto;
 }
-
+.quill-editor {
+  height: 250px;
+  margin-bottom:7rem;
+  border-radius: 4px;
+}
 .update-package-modal-overlay {
   position: fixed;
   top: 0;
@@ -35,11 +38,12 @@
 .update-package-form {
   display: flex;
   width: 400px;
+  height: 100vh;
   padding: 30px;
   background-color: #ffffffa9;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 
 .update-package-label {
@@ -56,6 +60,10 @@
   font-size: 14px;
   margin-bottom: 10px;
 }
+.form-select{
+width: 100%;
+min-height: 100px;
+}
 .upbuttons{
   display: flex;
   align-items: center;
@@ -71,6 +79,7 @@
   font-size: 16px;
   cursor: pointer;
   margin-top: 10px;
+  margin-bottom: 1rem;
 }
 
 .update-package-button:hover {
