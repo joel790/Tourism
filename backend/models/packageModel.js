@@ -6,12 +6,8 @@ const packageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    guideId: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "TourGuide",
-        required: true,
-      },
+    guides: [
+     String
     ],
 
     price: {
@@ -20,36 +16,31 @@ const packageSchema = new mongoose.Schema(
     },
     duration: {
       type: Number,
-      required: true,
     },
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+    createdBy: {
+      type:String,
       required: true,
     },
     description: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Tour",
+      type: String,
       required: true,
       trim: true,
     },
 
     location: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Tour",
+      type: String,
       required: true,
     },
 
     category: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Tour",
+      type:String,
       required: true,
     },
 
     ratingsAverage: {
       type: Number,
-      default: 0,
-      min: [1, "Rating must be above 1.0"],
+      default:0,
+      min: [0, "Rating must be above 0"],
       max: [5, "Rating must be below 5.0"],
       set: (val) => Math.round(val * 10) / 10,
     },
@@ -60,7 +51,6 @@ const packageSchema = new mongoose.Schema(
 
     images: {
       type: Object,
-      required: true,
       default: {},
     },
     priceDiscount: {

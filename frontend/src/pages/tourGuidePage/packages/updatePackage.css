@@ -1,0 +1,78 @@
+.update-package-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 20px;
+  padding-top: 50px;
+  max-height: 630px;
+  max-width: 800px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.update-package-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.update-package-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.update-package-form {
+  display: flex;
+  width: 400px;
+  padding: 30px;
+  background-color: #ffffffa9;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.update-package-label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.update-package-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.upbuttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.update-package-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.update-package-button:hover {
+  background-color: #0056b3;
+}

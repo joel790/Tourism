@@ -2,33 +2,44 @@ const asyncHandler = require("express-async-handler");
 const Package = require("../models/packageModel");
 
 exports.createPackage = asyncHandler(async (req, res) => {
-  const { name, price, duration, category } = req.body;
-  const userId = req.user.id; // Assuming you are using JWT authentication
+  const {
+    name,
+    guides,
+    price,
+    duration,
+    createdBy,
+    description,
+    location,
+    category,
+    priceDiscount,
+  } = req.body;
 
   const newPackage = await Package.create({
     name,
+    guides,
     price,
     duration,
+    createdBy,
+    description,
+    location,
     category,
-    userId,
+    priceDiscount,
   });
+  
   res.status(201).json({
     status: "success",
     data: {
       newPackage,
     },
   });
-  res.status(400).json({
-    status: "fail",
-    message: err.message,
-  });
 });
+
 exports.getPackages = asyncHandler(async (req, res) => {
-  const package = await Package.find({ userId: req.query.userId });
+  const packages = await Package.find();
   res.status(200).json({
     status: "success",
     data: {
-      package,
+      packages,
     },
   });
 
@@ -53,14 +64,41 @@ exports.getPackage = asyncHandler(async (req, res) => {
   });
 });
 exports.deletePackage = asyncHandler(async (req, res) => {
-  await Package.findByIdAndDelete(req.params.id);
+  const packageId = req.params.id;
+
+  const deletedPackage = await Package.findByIdAndDelete(packageId);
+  if (!deletedPackage) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Package not found",
+    });
+  }
+
   res.status(204).json({
     status: "success",
     data: null,
   });
+});
+exports.updatePackage = asyncHandler(async (req, res) => {
+  const packageId = req.params.id;
 
-  res.status(404).json({
-    status: "fail",
-    message: err.message,
+  const updatedPackage = await Package.findByIdAndUpdate(
+    packageId,
+    req.body,
+    { new: true }
+  );
+
+  if (!updatedPackage) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Package not found",
+    });
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      package: updatedPackage,
+    },
   });
 });

@@ -1,12 +1,10 @@
 .table-wrapper {
-    height: 95%;
-    overflow: auto;
-    width: 98%;
-    position: absolute;
-    background-color: #ffffff;
-    box-shadow: 0 0 5px grey;
-    margin-left: 15px;
-    margin-top: 4rem;
+  width: 100%;
+  background-color: #fff;
+  align-items: center;
+  border: 1px solid #ccc;
+  justify-content: center;
+  border-radius: 5px;
  }
   .search-input {
     width: 200px;

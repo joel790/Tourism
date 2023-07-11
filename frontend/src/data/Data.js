@@ -219,11 +219,7 @@ export const HotelSidebarData = [
     heading: "Hotels",
     link: "/hotels",
   },
-  {
-    icon: BiTaxi,
-    heading: "Cars",
-    link: "/cars",
-  },
+
 ];
 
 export const CardsData = [
