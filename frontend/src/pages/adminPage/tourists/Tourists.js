@@ -47,12 +47,16 @@ const Tourists = () => {
   return (
     
     <div className="MainTourist">  
+    <span>System users</span>
+    <div className="tableContainer">
       <MyTable
         apiEndpoint="http://localhost:5000/api/users"
         title="Tourists"
         columns={Usercolumns}
         dataKey="user"
       />
+
+</div>
     </div>
   );
 };

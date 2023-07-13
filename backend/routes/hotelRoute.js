@@ -11,6 +11,7 @@ const {
 const { hotel, protect } = require("../moddleWare/authMiddleware");
 const router = express.Router();
 router.get("/", getAllHotels);
+
 router.get("/countbycity", countByCity);
 router.get("/Countbytype", countByType);
 router.post("/", protect, hotel, createHotel);

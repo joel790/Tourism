@@ -68,8 +68,11 @@
   }
   .dataTable{
     margin-top:10px;
+    margin-bottom: 30px;
+    padding: 10px;
     border:0.5px solid rgba(177, 177, 177, 0.281);
     display:flex;
+    background-color: #fff;
     width:100%;
     gap:30px;
   }
@@ -81,8 +84,7 @@
   .reveiws{
   width: 200px;
   min-height: 600px;
-  margin-bottom:5px;
-  margin-top:18px;
+  border-radius: 5px;
 
-  background-color:rgb(57, 188, 197);
+  background-color:#f3f3f3;
   }

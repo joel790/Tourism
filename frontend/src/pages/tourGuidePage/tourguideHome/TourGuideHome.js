@@ -3,7 +3,7 @@ import Sidebar from "../../../components/sidebar/Sidebar";
 import "./TourGuideHome.css";
 import Packages from "../packages/Packages";
 import Tourists from "../tourists/Tourist";
-import Bookings from "../../adminPage/bookings/Bookings";
+import Bookings from "../bookings/Bookings";
 import Dashboard from "../dashboard/Dashboard";
 import Hotels from "../hotels/Hotels";
 import Cars from "../cars/Cars";

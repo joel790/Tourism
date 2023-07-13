@@ -1,68 +1,42 @@
-.MainBooking{
-    height: 95%;
-    width: 95%;
-}
-.add-user-button {
-    float: right;
-    font-size: 1.6rem;
-    font-weight: 400;
-    padding: 6px 8px;
-    margin: 2rem 5rem -10rem 0;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 300s ease;
-}
-
-.add-tour-popup {
-    border-radius: 10px;
+.bookings-container {
     padding: 20px;
-    background-color: #effafc;
-    width: 400px;
-    max-height: calc(100vh - 6rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 3rem auto;
     overflow-y: auto;
-}
-
-.add-tour-popup input,
-.add-tour-popup textarea {
+    max-height: 600px;
+  }
+  
+  .bookings-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .rdt_Table {
     width: 100%;
-    max-width: 100%;
-    margin-bottom: 1rem;
+    border-collapse: collapse;
+  }
+  
+  .rdt_TableHead .rdt_TableHeader {
+    background-color: #f1f1f1;
+  }
+  
+  .rdt_TableBody .rdt_TableCell {
     padding: 10px;
-
-}
-
-.add-tour-popup textarea {
-    position: relative;
-}
-
-.selection {
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    box-shadow: 10px #cec5c5;
-    margin-bottom: 1rem;
-    display: flex;
-}
-
-
-.add-tour-popup button {
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.add-tour-popup button:hover {
-    background-color: #45a049;
-}
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .rdt_TableBody .rdt_TableCol_Select {
+    padding: 5px;
+  }
+  
+  .rdt_TableBody .rdt_TableCol_Select option[value="Pending"] {
+    color: #ffc107; /* Yellow */
+  }
+  
+  .rdt_TableBody .rdt_TableCol_Select option[value="Confirmed"] {
+    color: #28a745; /* Green */
+  }
+  
+  .rdt_TableBody .rdt_TableCol_Select option[value="Cancelled"] {
+    color: #dc3545; /* Red */
+  }
+  

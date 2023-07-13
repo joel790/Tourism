@@ -1,6 +1,51 @@
-.MainDashboard{
-    height: 95%;
-    width: 98%;
+.dashboard-container {
+    padding: 20px;
+  }
   
-}
-
+  .dashboard-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-cards {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-card {
+    width: calc(25% - 20px);
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .card-icon {
+    font-size: 24px;
+  }
+  
+  .card-info {
+    text-align: right;
+  }
+  
+  .dashboard-recent-bookings {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .dashboard-recent-bookings ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .dashboard-recent-bookings li {
+    margin-bottom: 5px;
+  }
+  

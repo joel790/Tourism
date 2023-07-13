@@ -275,16 +275,19 @@ const Guides = () => {
       )}
       {!showAdd && !updateData && (
         <>
+        <div className="addButton">
           <button className="add-user-button" onClick={handleAddUser}>
             Add +
           </button>
-
+          </div>
+          <div className="tableContainer">
           <MyTable
             apiEndpoint="http://localhost:5000/api/tourGuides"
             title="Guides"
             columns={Guidecolumns}
             dataKey="tourGuide"
           />
+          </div>
         </>
       )}
     </div>

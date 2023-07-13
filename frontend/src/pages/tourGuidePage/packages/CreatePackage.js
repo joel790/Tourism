@@ -28,7 +28,9 @@ const CreatePackage = () => {
         console.error("Error fetching guides:", error);
       });
   }, []);
-
+  const handleDescriptionChange = (value) => {
+    setDescription(value);
+  };
   const handleGuideChange = (event) => {
     const selectedValues = Array.from(
       event.target.selectedOptions,
@@ -138,7 +140,7 @@ const CreatePackage = () => {
         <ReactQuill
           className="quill-editor"
           value={description}
-          onChange={(event) => setDescription(event.target.value)}
+          onChange={handleDescriptionChange}
         />
 
         <label className="form-label">Location:</label>

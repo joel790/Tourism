@@ -1,6 +1,112 @@
 .MainPackage{
-    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    
+    background-color: #ebfdfc;
+
 }
+
+.plogo {
+    color: #1a0afa;
+    font-size: 25px;
+  }
+  
+  .pheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+    max-width: 1024px;
+    margin-bottom: 20px;
+    border: 1px solid gainsboro;
+    background-color: #fff;
+  }
+  
+  .SearchContainer {
+    /* Add styling for the search input */
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  .SearchContainer input {
+    border: none;
+    outline: none;
+    width: 200px;
+    padding: 5px;
+    margin-right: 5px;
+    background-color: #fff;
+  }
+  
+  .FilterContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .FilterContainer select {
+    border: none;
+    margin-right: 2rem;
+    background-color: #effaf8;
+    outline: none;
+    padding: 5px;
+    border-radius: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .PackageTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .PackageList {
+    display: flex;
+    max-width: 1024px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .Card {
+    width: 330px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    /* text-align: center; */
+  }
+  
+  .PackageImage {
+    width: 100%;
+    height: 200px;
+    object-fit: fill;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .PackageName {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .BookButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .BookButton:hover {
+    background-color: #0056b3;
+  }
+  

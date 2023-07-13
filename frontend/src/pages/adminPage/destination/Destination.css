@@ -1,26 +1,36 @@
 .MainTour {
     height: 95%;
     width: 98%;
+    padding-left: 10%;
+    overflow-y: auto;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.tableContainer{
+    margin-top: 2rem;
+ width: 94%;
+max-width: 1024px;
 
 }
-
-.add-user-button {
-    float: right;
-    font-size: 1.6rem;
-    font-weight: 400;
-    padding: 6px 8px;
-    margin: 2rem 5rem -10rem 0;
-    border: 1px solid transparent;
-    border-radius: 13px;
-    width: 10rem;
+.AllWrapper{
+    width: 94%;
+max-width: 1024px; 
+align-items: center;
+display: flex;
+flex-direction: column;
+}
+.add-dest-button {
+    width: 100px;
     cursor: pointer;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    position: fixed;
-    top: 1rem;
-    left: 106rem;
-    transition: all 300s ease;
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px solid gray;
+    margin-left: 80%;
+    margin-top: 2rem;
 }
 
 .add-tour-popup {

@@ -1,4 +1,26 @@
 .MainTourist{
     height: 95%;
     width: 98%;
+    overflow-y: auto;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+.custmers{
+    display: flex;
+    margin-right: 82%;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: serif;
+    color: aqua;
+}
+.tableContainer{
+    width: 94%;
+   max-width: 1024px;
+   
+   }

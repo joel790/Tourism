@@ -1,210 +1,104 @@
-import React, { useState } from "react";
-// import axios from "axios";
-// import { RiEditLine } from "react-icons/ri";
-// import { AiOutlineDelete } from "react-icons/ai";
-// import AddButton from "../../../components/AddButton/AddButton";
-// import Update from "../../../components/AddButton/Update";
-// import MyTable from "../../../components/dataTable/DataTable";
-
-// import { BookingData } from "../../../data/Data";
-import "./Booking.css";
+import React, { useState } from 'react';
+import DataTable from 'react-data-table-component';
+import './Booking.css';
 
 const Bookings = () => {
-  //   const [showAdd, setShowAdd] = useState(false);
-  //   const [updateData, setUpdateData] = useState(false);
-  //   const [bookingData, setBookingData] = useState({
-  //     tourguideName: "",
-  //     tourPlace: "",
-  //     date: "",
-  //     status: "",
-  //     numberofpeople: "",
-  //     contactNumber: "",
-  //   });
+  const [bookings, setBookings] = useState([
+    { id: 1, customer: 'John Doe', status: 'Pending', bookingDate: '2023-07-15', bookingType: 'Tour', bookingPlace: 'Paris' },
+    { id: 2, customer: 'Jane Smith', status: 'Confirmed', bookingDate: '2023-07-16', bookingType: 'Hotel', bookingPlace: 'London' },
+    { id: 3, customer: 'Bob Johnson', status: 'Pending', bookingDate: '2023-07-17', bookingType: 'Tour', bookingPlace: 'Rome' },
+    { id: 4, customer: 'John Doe', status: 'Pending', bookingDate: '2023-07-15', bookingType: 'Tour', bookingPlace: 'Paris' },
+    { id: 5, customer: 'Jane Smith', status: 'Confirmed', bookingDate: '2023-07-16', bookingType: 'Hotel', bookingPlace: 'London' },
+    { id: 6, customer: 'Bob Johnson', status: 'Pending', bookingDate: '2023-07-17', bookingType: 'Tour', bookingPlace: 'Rome' },
+    { id: 7, customer: 'John Doe', status: 'Pending', bookingDate: '2023-07-15', bookingType: 'Tour', bookingPlace: 'Paris' },
+    { id: 8, customer: 'Jane Smith', status: 'Confirmed', bookingDate: '2023-07-16', bookingType: 'Hotel', bookingPlace: 'London' },
+    { id: 9, customer: 'Bob Johnson', status: 'Pending', bookingDate: '2023-07-17', bookingType: 'Tour', bookingPlace: 'Rome' },
+    { id: 10, customer: 'John Doe', status: 'Pending', bookingDate: '2023-07-15', bookingType: 'Tour', bookingPlace: 'Paris' },
+    { id: 11, customer: 'Jane Smith', status: 'Confirmed', bookingDate: '2023-07-16', bookingType: 'Hotel', bookingPlace: 'London' },
+    { id: 12, customer: 'Bob Johnson', status: 'Pending', bookingDate: '2023-07-17', bookingType: 'Tour', bookingPlace: 'Rome' },
+  ]);
 
-  //   const bookingColumns = [
-  //     { name: "ID", selector: "id", sortable: true },
-  //     { name: "Name", selector: "tourguideName", sortable: true },
-  //     { name: "Location", selector: "tourPlace", sortable: true },
-  //     { name: "Description", selector: "date", sortable: true },
-  //     { name: "Category", selector: "numberofpeople", sortable: true },
-  //     { name: "Category", selector: "contactNumber", sortable: true },
-  //     {
-  //       name: "Actions",
-  //       cell: (row) => (
-  //         <div className="Actions">
-  //           <RiEditLine
-  //             onClick={() => handleEdit(row)}
-  //             style={{
-  //               cursor: "pointer",
-  //               marginRight: "18px",
-  //               fontSize: "2rem",
-  //               color: "black",
-  //             }}
-  //           />
-  //           <AiOutlineDelete
-  //             onClick={() => handleDelete(row)}
-  //             style={{
-  //               cursor: "pointer",
-  //               marginRight: "10px",
-  //               fontSize: "2rem",
-  //               color: "black",
-  //             }}
-  //           />
-  //         </div>
-  //       ),
-  //     },
-  //   ];
+  const updateBookingStatus = (id, newStatus) => {
+    const updatedBookings = bookings.map((booking) =>
+      booking.id === id ? { ...booking, status: newStatus } : booking
+    );
+    setBookings(updatedBookings);
+  };
 
-  //   const handleAddUser = () => {
-  //     setShowAdd(true);
-  //     setUpdateData(false);
-  //   };
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'Pending':
+        return '#ffc107'; // Yellow
+      case 'Confirmed':
+        return '#28a745'; // Green
+      case 'Cancelled':
+        return '#dc3545'; // Red
+      default:
+        return '';
+    }
+  };
 
-  //   const handleInputChange = (event) => {
-  //     const { name, value } = event.target;
-  //     setBookingData((prevData) => ({
-  //       ...prevData,
-  //       [name]: value,
-  //     }));
-  //   };
-
-  //   const handleAddSuccess = () => {
-  //     setShowAdd(false);
-  //     setBookingData({
-  //       tourguideName: "",
-  //       tourPlace: "",
-  //       date: "",
-  //       status: "pending",
-  //       numberofpeople: "",
-  //       contactNumber: "",
-  //     });
-  //   };
-
-  //   const handleEdit = (row) => {
-  //     setUpdateData(true);
-  //     setShowAdd(false);
-  //     setBookingData(row);
-  //   };
-
-  //   const handleDelete = (row) => {
-  //     axios
-  //       .delete(`http://localhost:5000/api/bookings/${row.id}`)
-  //       .then((response) => {
-  //         console.log("Data deleted successfully:", response.data);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error deleting data:", error);
-  //       });
-  //   };
+  const columns = [
+    {
+      name: 'Customer',
+      selector: 'customer',
+      sortable: true,
+    },
+    {
+      name: 'Status',
+      selector: 'status',
+      sortable: true,
+      cell: (row) => (
+        <div style={{ color: getStatusColor(row.status) }}>{row.status}</div>
+      ),
+    },
+    {
+      name: 'Booking Date',
+      selector: 'bookingDate',
+      sortable: true,
+    },
+    {
+      name: 'Booking Type',
+      selector: 'bookingType',
+      sortable: true,
+    },
+    {
+      name: 'Booking Place',
+      selector: 'bookingPlace',
+      sortable: true,
+    },
+    {
+      name: 'Actions',
+      cell: (row) => (
+        <select
+          value={row.status}
+          onChange={(e) => updateBookingStatus(row.id, e.target.value)}
+        >
+          <option value="Pending">Pending</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      ),
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
+    },
+  ];
 
   return (
-    // <div className="MainBooking">
-    //   {showAdd && (
-    //     <div className="add-tour-popup">
-    //       <input
-    //         type="text"
-    //         placeholder="TourguideName"
-    //         name="name"
-    //         value={bookingData.name}
-    //         onChange={handleInputChange}
-    //       />
-    //       <input
-    //         type="text"
-    //         placeholder="tourPlace"
-    //         name="name"
-    //         value={bookingData.tourPlace}
-    //         onChange={handleInputChange}
-    //       />
-    //       <input
-    //         type="date"
-    //         placeholder="date"
-    //         name="date"
-    //         value={bookingData.date}
-    //         onChange={handleInputChange}
-    //       />
-
-    //       <input
-    //         type="number"
-    //         placeholder="numberofpeople"
-    //         name="numberofpeople"
-    //         value={bookingData.numberofpeople}
-    //         onChange={handleInputChange}
-    //       ></input>
-    //       <input
-    //         type="number"
-    //         placeholder="contactNumber"
-    //         name="contactNumber"
-    //         value={bookingData.contactNumber}
-    //         onChange={handleInputChange}
-    //       ></input>
-    //       <AddButton
-    //         apiEndpoint="http://localhost:5000/api/bookings"
-    //         dataToAdd={bookingData}
-    //         onSuccess={handleAddSuccess}
-    //       />
-    //     </div>
-    //   )}
-    //   {updateData && (
-    //     <div className="add-tour-popup">
-    //       <input
-    //         type="text"
-    //         placeholder="TourguideName"
-    //         name="name"
-    //         value={bookingData.name}
-    //         onChange={handleInputChange}
-    //       />
-    //       <input
-    //         type="text"
-    //         placeholder="tourPlace"
-    //         name="name"
-    //         value={bookingData.tourPlace}
-    //         onChange={handleInputChange}
-    //       />
-    //       <input
-    //         type="date"
-    //         placeholder="date"
-    //         name="date"
-    //         value={bookingData.date}
-    //         onChange={handleInputChange}
-    //       />
-
-    //       <input
-    //         type="number"
-    //         placeholder="numberofpeople"
-    //         name="numberofpeople"
-    //         value={bookingData.numberofpeople}
-    //         onChange={handleInputChange}
-    //       ></input>
-    //       <input
-    //         type="number"
-    //         placeholder="contactNumber"
-    //         name="contactNumber"
-    //         value={bookingData.contactNumber}
-    //         onChange={handleInputChange}
-    //       ></input>
-
-    //       <Update
-    //         apiEndpoint={`http://localhost:5000/api/booking/${bookingData.id}`}
-    //         dataToUpdate={bookingData}
-    //         onSuccess={handleAddSuccess}
-    //       />
-    //     </div>
-    //   )}
-    //   {!showAdd && !updateData && (
-    //     <>
-    //       <button className="add-user-button" onClick={handleAddUser}>
-    //         Add +
-    //       </button>
-    //       <MyTable
-    //         apiEndpoint="http://localhost:5000/api/bookings"
-    //         title="Bookings"
-    //         columns={bookingColumns}
-    //         dataKey="bookings"
-    //       />
-    //     </>
-    //   )}
-    // </div>
-    <h1>ehello booking</h1>
+    <div className="bookings-container">
+      <div className="bookings-header">
+        <h2>Bookings</h2>
+      </div>
+      <DataTable
+        columns={columns}
+        data={bookings}
+        pagination
+        striped
+        highlightOnHover
+        responsive
+      />
+    </div>
   );
 };
 

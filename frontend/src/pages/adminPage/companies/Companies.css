@@ -1,23 +1,36 @@
 .MainCompany {
     height: 95%;
     width: 98%;
-
+    padding-left: 10%;
+    overflow-y: auto;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.compwrapper{
+    width: 94%;
+    max-width: 1024px; 
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.tableholder{
+    margin-top: 2rem;
+    width: 94%;
+   max-width: 1024px;
 
 }
 
-.add-user-button {
-    float: right;
-    font-size: 1.6rem;
-    font-weight: 400;
-    padding: 6px 8px;
-    margin: 2rem 5rem -10rem 0;
-    border: 1px solid transparent;
-    border-radius: 3px;
+.add-comp-button {
+    width: 100px;
+    color: white;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 300s ease;
+    background-color: blue;
+    border: none;
+    padding: 10px;
+    border-radius: 5px solid gray;
+    margin-left: 80%;
+    margin-top: 2rem;
 }
 
 .add-tour-popup button {

@@ -3,7 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { RiEditLine } from "react-icons/ri";
 import MyTable from "../../../components/dataTable/DataTable";
 import "./Destination.css";
-
+import {toast} from "react-toastify"
 import AddButton from "../../../components/AddButton/AddButton";
 import axios from "axios";
 import Update from "../../../components/AddButton/Update";
@@ -23,7 +23,7 @@ const Destination = () => {
     { name: "ID", selector: "id", sortable: true },
     { name: "Name", selector: "name", sortable: true },
     { name: "Location", selector: "location", sortable: true },
-    { name: "Description", selector: "description", sortable: true },
+    // { name: "Description", selector: "description", sortable: true },
     { name: "Category", selector: "category", sortable: true },
     {
       name: "Actions",
@@ -100,7 +100,7 @@ const Destination = () => {
     axios
       .delete(`http://localhost:5000/api/tours/${row.id}`)
       .then((response) => {
-        console.log("Data deleted successfully:", response.data);
+        toast.success("Data deleted successfully:", response.data);
       })
       .catch((error) => {
         console.error("Error deleting data:", error);
@@ -206,15 +206,19 @@ const Destination = () => {
       )}
       {!showAdd && !updateData && (
         <>
-          <button className="add-user-button" onClick={handleAddUser}>
+        <div className="AllWrapper">
+          <button className="add-dest-button" onClick={handleAddUser}>
             Add +
           </button>
+          <div className="tableContainer">
           <MyTable
             apiEndpoint="http://localhost:5000/api/tours"
             title="Tours"
             columns={toursColumns}
             dataKey="tour"
           />
+          </div>
+          </div>
         </>
       )}
     </div>

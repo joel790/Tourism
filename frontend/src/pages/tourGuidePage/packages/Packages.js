@@ -73,7 +73,7 @@ const Packages = () => {
 
   return (
     <div className="MainPackage">
-      <div className="pheader">
+      <div className="pheaders">
         <span className="ptitle">Packages</span>
         <button onClick={toggleAddPackage} className="pbutton">
           {showAdd ? "Close" : "Add New"}

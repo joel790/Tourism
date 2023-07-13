@@ -1,5 +1,5 @@
 .home {
-  background-color: #1ddba2;
+  background-color: #ffffff;
   min-height: 100vh;
   margin: 0;
   }
@@ -92,7 +92,6 @@
   .pbefore{
     height: 300px;
     align-items: center;
-    justify-content: start;
     margin-left: 3rem;
     display: flex;
     flex-direction: row;

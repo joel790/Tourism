@@ -1,7 +1,14 @@
 .MainTourist{
-    height: 100%;
+    height: 95%;
     width: 98%;
-  
+    display: flex;
+    flex-direction: column;
+align-items: center;
+}
+.tableContainer{
+ width: 94%;
+max-width: 1024px;
+
 }
 .Actions{
     display: flex;

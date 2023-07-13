@@ -177,17 +177,20 @@ const Companies = () => {
       )}
       {!showAdd && !updateData && (
         <>
-          <button className="add-user-button" onClick={handleAddUser}>
+        <div className="compwrapper">
+          <button className="add-comp-button" onClick={handleAddUser}>
             Add +
           </button>
-
           {/* <button onClick={handleDelete}>Delete</button> */}
+         <div className="tableholder">
           <MyTable
             apiEndpoint="http://localhost:5000/api/companies"
             title="Companies"
             columns={CompaniesRegister}
             dataKey="company"
           />
+          </div>
+          </div>
         </>
       )}
     </div>

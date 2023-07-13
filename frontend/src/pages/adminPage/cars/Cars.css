@@ -1,6 +1,9 @@
-.MainTour{
-    height: 100vh;
-    width: 100%;
+.MainCar{
+    height: 95%;
+    width: 98%;
+    padding-left: 10%;
+    overflow-y: auto;
+    max-height: 600px;
     display: flex;
     flex-direction: column;
 }

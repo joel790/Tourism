@@ -69,6 +69,18 @@ exports.getHotel = asyncHandler(async (req, res) => {
   }
   res.status(200).json(hotel);
 });
+//get hotels
+// exports.getHotels = asyncHandler(async (req, res) => {
+//   const hotels = await Hotel.findById(req.params.id);
+//   if (!hotels) {
+//     return res.status(404).json({ message: "Hotel not found" });
+//   }
+//   res.status(200).json({
+//     data:{
+//       hotels,
+//     }}
+//   );
+// });
 
 // Update a Hotel by ID
 exports.updateHotel = asyncHandler(async (req, res) => {
